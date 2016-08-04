@@ -13,3 +13,133 @@
  *= require_tree .
  *= require_self
  */
+ html, body, header, nav, h1, a,
+ ul, li, strong, main, button, i,
+ section, img, div, h2, p, form,
+ fieldset, label, input, textarea,
+ span, article, footer, time, small {
+   margin: 0;
+   padding: 0;
+   border: 0;
+   outline: 0;
+   font: inherit;
+   color: inherit;
+   text-align: inherit;
+   text-decoration: inherit;
+   vertical-align: inherit;
+   box-sizing: inherit;
+   background: transparent;
+ }
+
+ ul {
+  list-style-type: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+  cursor: pointer;
+}
+
+/* Clearfix */
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+button{
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid;
+  vertical-align: middle;
+  cursor: pointer;
+  font-family: helvetica;
+}
+
+.form{
+  box-sizing: border-box;
+  width: 350px;
+  align-content: center;
+  border: 1px solid grey;
+}
+
+.form-input{
+  border-color: #ffb400;
+  font-family: helvetica;
+  font-weight: lighter;
+  font-size: 14px;
+
+
+  border-radius: 2px;
+  border: 1px solid grey;
+
+  height: 35px;
+  margin: 10px 0px;
+  padding: 6px;
+  display: inline-block;
+  width: 100%;
+}
+
+.signup_button, .login_button{
+  background-color: #ff7e82;
+  border-color: #ff7e82;
+  border-bottom-color: #fa0008;
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+
+  height: 50px;
+  margin: 10px 0px;
+  border: 1px;
+  padding: 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+
+.header-group{
+
+}
+
+.nav-bar-user{
+
+}
+
+.user-menu{
+
+}
+
+.login-signup{
+
+}
+
+.nav-bar-buttons{
+
+}
+
+.modal{
+
+}
+
+.logo{
+
+}

@@ -8,7 +8,7 @@ const SignUpForm = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
-  
+
   getInitialState(){
     return { email: "", password: "", fname: "", lname: ""};
   },
@@ -48,42 +48,42 @@ const SignUpForm = React.createClass({
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} className='form'>
 
         <br />
 
-        <label> First Name:
           <input type="text"
+            className="form-input"
             value={this.state.fname}
+            placeholder = "First Name"
             onChange={this.update("fname")} />
-        </label>
 
         <br />
 
-				<label> Last Name:
 					<input type="text"
+            className="form-input"
             value={this.state.lname}
+            placeholder = "Last Name"
             onChange={this.update("lname")} />
-				</label>
 
         <br />
 
-				<label> Email Address:
 					<input type="text"
+            className="form-input"
             value={this.state.email}
+            placeholder = "Email Address"
             onChange={this.update("email")} />
-				</label>
 
         <br />
 
-				<label> Password:
           <input type="password"
+            className="form-input"
             value={this.state.password}
+            placeholder = "Password"
             onChange={this.update("password")} />
-				</label>
 
         <br />
-				<input type="submit" value="Sign Up" />
+        <button type="submit" className="signup_button">Sign Up</button>
 			</form>
 		);
 	}

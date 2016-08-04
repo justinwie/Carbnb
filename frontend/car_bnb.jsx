@@ -12,6 +12,7 @@ const SessionActions = require('./actions/session_actions')
 
 const LoginForm = require('./components/login_form.jsx')
 const SignUpForm = require('./components/signup_form.jsx')
+const NavBar = require('./components/navbar');
 
 const App = require('./components/app.jsx')
 

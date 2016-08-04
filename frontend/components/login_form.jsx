@@ -29,6 +29,17 @@ const LoginForm = React.createClass({
     }
   },
 
+  handleGuestLogin(e){
+    e.preventDefault();
+
+    const guestData = {
+			email: "guest@email.com",
+			password: "password"
+		};
+
+    SessionActions.logIn(guestData);
+  },
+
 	handleSubmit(e) {
 		e.preventDefault();
 
@@ -50,22 +61,23 @@ const LoginForm = React.createClass({
 
         <br />
 
-				<label> Email:
 					<input type="text"
             value={this.state.email}
+            className="form-input"
+            placeholder = "Email Address"
             onChange={this.update("email")} />
-				</label>
 
         <br />
 
-				<label> Password:
           <input type="password"
             value={this.state.password}
+            className="form-input"
+            placeholder = "Password"
             onChange={this.update("password")} />
-				</label>
 
         <br />
-				<input type="submit" value="Submit" />
+        <button className="login_button" type="submit">Log In</button>
+        <button className="login_button" onClick={this.handleGuestLogin}>Guest Login</button>
 			</form>
 		);
 	}

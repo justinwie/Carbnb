@@ -2,6 +2,7 @@ const React = require('react');
 const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
+const NavBar = require('./navbar');
 
 const App = React.createClass({
 
@@ -25,7 +26,7 @@ const App = React.createClass({
     }
     else {
       return(
-        <nav class='navbar'>
+        <nav>
           <Link to="/login">Login</Link>
           <br></br>
           <Link to="/signup">Sign Up</Link>
@@ -37,9 +38,8 @@ const App = React.createClass({
   render(){
     return(
       <div>
-        <header>
-          {this.greeting()}
-        </header>
+        <NavBar />
+        {this.greeting()}
         {this.props.children}
       </div>
     )
