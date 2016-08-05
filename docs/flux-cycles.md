@@ -71,7 +71,6 @@ what you'll need to do.
   0. `POST /api/cars` is called.
   0. `receiveSingleCar` is set as the success callback.
 
-
 * `updateCar`
   0. invoked from `CarForm` `onSubmit`
   0. `POST /api/cars` is called.

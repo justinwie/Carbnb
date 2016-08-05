@@ -62,7 +62,7 @@ the API.
 
 **Objective:** Cars can be searched by location, availability, and filtered.
 
-- [ ] maps component
+- [ ] Maps component
 - [ ] Filters Component
 - [ ] Style Map and Filters
 - [ ] NavBar Component
@@ -100,5 +100,5 @@ the API.
 - [ ] Instant-book
 - [ ] Messaging
 - [ ] Guidebooks
-- [ ] Nap/rental history
+- [ ] Rental history
 - [ ] Autoclicks into the first input field
