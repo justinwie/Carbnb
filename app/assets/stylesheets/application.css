@@ -31,6 +31,7 @@
    box-sizing: inherit;
    background: transparent;
    font-weight: lighter;
+   font-family: helvetica;
  }
 
  ul {
@@ -168,14 +169,18 @@ body {
   margin: 0 5px;
 }
 
+
+
+
 .user-menu{
   display: none;
   position: absolute;
-  left: -1px;
+  right: 0px;
   background-color: white;
   border-bottom: 1px solid lightgrey;
   border-right: 1px solid lightgrey;
   border-left: 1px solid lightgrey;
+  overflow: hidden;
 }
 
 .header-group{
@@ -191,18 +196,29 @@ li:hover .user-menu {
 }
 
 .user-menu > li{
-  border-top: 1px solid black;
-  padding: 20px;
+  border-top: 1px solid lightgrey;
+  padding: 10px;
   background-color: white;
   width: 200px;
-  font-size: 12px;
+  font-size: 14px;
+  font-family: helvetica;
   text-align: center;
-  right: 0;
+  right: auto;
 }
 
 
 .user-menu > li:hover {
   background: #eee;
+  font-weight: bold;
+}
+
+.welcomeMsg{
+  display: block;
+  font-size: 40px;
+  color: 	#FFFAFA;
+  font-weight: lighter;
+  padding-top: 100px;
+  text-align: center;
 }
 
 

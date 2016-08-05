@@ -19,17 +19,14 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       return(
         <div>
-          <h2>Welcome back {SessionStore.currentUser().fname}! :)</h2>
-          <input type="submit" value="logout" onClick={this._handleLogOut}></input>
+          <h1>Welcome Back, {SessionStore.currentUser().fname}! :)</h1>
         </div>
       )
     }
     else {
       return(
         <nav>
-          <Link to="/login">Login</Link>
           <br></br>
-          <Link to="/signup">Sign Up</Link>
         </nav>
       );
     }
@@ -37,9 +34,17 @@ const App = React.createClass({
 
   render(){
     return(
-      <div>
-        <NavBar />
-        {this.props.children}
+      <div className='root'>
+
+        <div className='rootNavBar'>
+          <NavBar />
+        </div>
+
+        <div className='welcomeMsg'>
+          {this.greeting()}
+          {this.props.children}
+        </div>
+
       </div>
     )
   }

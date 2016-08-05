@@ -34,22 +34,24 @@ const NavBar = React.createClass({
   greeting() {
       if (SessionStore.isUserLoggedIn()) {
         return (
-          <hgroup className='header-group'>
-            <div className='nav-bar-user group' id='user-button'>
-              <li>
+          <div>
+            <hgroup className='header-group'>
+              <div className='nav-bar-user group' id='user-button'>
+                <li>
 
-                <button className='current_user_button'>
-                  {SessionStore.currentUser().fname}
-                </button>
+                  <button className='current_user_button'>
+                    {SessionStore.currentUser().fname}
+                  </button>
 
-                <ul className='user-menu'>
-                  <li>Cars</li>
-                  <li>Bookings</li>
-                  <li onClick={this.handleLogout}>Log Out</li>
-                </ul>
-              </li>
-            </div>
-          </hgroup>
+                  <ul className='user-menu'>
+                    <li>Cars</li>
+                    <li>Bookings</li>
+                    <li onClick={this.handleLogout}>Log Out</li>
+                  </ul>
+                </li>
+              </div>
+            </hgroup>
+        </div>
         );
       }
 
