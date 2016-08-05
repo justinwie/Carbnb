@@ -101,3 +101,4 @@ the API.
 - [ ] Messaging
 - [ ] Guidebooks
 - [ ] Nap/rental history
+- [ ] Autoclicks into the first input field

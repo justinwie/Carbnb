@@ -1,4 +1,5 @@
 module.exports = {
   LOGIN: "LOGIN",
-  LOGOUT: "LOGOUT"
+  LOGOUT: "LOGOUT",
+  SIGNUP: "SIGNUP"
 }

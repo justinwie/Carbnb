@@ -1,5 +1,7 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
+const Modal = require("react-modal");
+
 
 const ReactRouter = require('react-router');
 const Router = ReactRouter.Router;
@@ -28,5 +30,6 @@ const appRouter = (
 
 document.addEventListener("DOMContentLoaded", function(){
   const content = document.getElementById('content');
+  Modal.setAppElement(document.body);
   ReactDOM.render(appRouter, content);
 });

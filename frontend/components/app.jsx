@@ -39,7 +39,6 @@ const App = React.createClass({
     return(
       <div>
         <NavBar />
-        {this.greeting()}
         {this.props.children}
       </div>
     )

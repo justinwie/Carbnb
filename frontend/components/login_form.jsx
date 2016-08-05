@@ -26,6 +26,7 @@ const LoginForm = React.createClass({
   redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
       this.context.router.push("/");
+      this.props.closeModal();
     }
   },
 
@@ -57,11 +58,11 @@ const LoginForm = React.createClass({
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} className='form'>
 
         <br />
 
-					<input type="text"
+					<input type="text" id="focus-me"
             value={this.state.email}
             className="form-input"
             placeholder = "Email Address"
@@ -82,5 +83,7 @@ const LoginForm = React.createClass({
 		);
 	}
 });
+
+
 
 module.exports = LoginForm;
