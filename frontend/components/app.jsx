@@ -3,6 +3,8 @@ const Link = require('react-router').Link;
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 const NavBar = require('./navbar');
+const CarMap = require('./car_map')
+const Search = require('./search')
 
 const App = React.createClass({
 
@@ -44,6 +46,7 @@ const App = React.createClass({
           {this.greeting()}
           {this.props.children}
         </div>
+
 
       </div>
     )

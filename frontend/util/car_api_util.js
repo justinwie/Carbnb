@@ -1,8 +1,9 @@
 const CarApiUtil = {
-  fetchAllCars(callback){
+  fetchAllCars(bounds, callback){
     $.ajax({
       url: 'api/cars',
       type: 'GET',
+      data: bounds,
       success(resp){
         callback(resp);
       }
@@ -41,7 +42,7 @@ const CarApiUtil = {
         error("createcar", errors)
       }
     })
-  }
+  },
 
   updateCar(car, callback){
     $.ajax({

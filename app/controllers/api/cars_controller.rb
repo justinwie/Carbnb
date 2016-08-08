@@ -1,6 +1,11 @@
 class Api::CarsController < ApplicationController
   def index
     @cars = Car.all
+
+    if params[:user]
+      @cars = Car.where(owner_id: params[:user].to_i)
+    end
+    render json: @cars
   end
 
   def create
@@ -15,6 +20,7 @@ class Api::CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    render "api/cars/show"
   end
 
   def update

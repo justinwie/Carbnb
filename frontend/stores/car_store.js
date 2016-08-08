@@ -4,8 +4,8 @@ const AppDispatcher = require('../dispatcher/dispatcher')
 const CarConstants = require('../constants/car_constants');
 
 const CarStore = new Store(AppDispatcher);
-const _cars = {}
 
+let _cars = {}
 
 const _resetAllCars = function(cars){
   _cars = {};
@@ -23,7 +23,17 @@ const _removeCar = function(id){
   delete _cars[id]
 }
 
+CarStore.all = function(){
+  return Object.assign({}, _cars);
+};
+
+CarStore.find = function(id){
+  return _cars[id]
+};
+
 CarStore.__onDispatch = function(payload) {
+  
+
   switch (payload.actionType) {
     case CarConstants.CARS_RECEIVED:
       _resetAllCars(payload.cars)

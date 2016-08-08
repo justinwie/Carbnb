@@ -15,15 +15,18 @@ const SessionActions = require('./actions/session_actions')
 const LoginForm = require('./components/login_form.jsx')
 const SignUpForm = require('./components/signup_form.jsx')
 const NavBar = require('./components/navbar');
+const Search = require('./components/search');
+const RootPage = require('./components/root_page')
 
 const App = require('./components/app.jsx')
 
 const appRouter = (
   <Router history={ hashHistory }>
     <Route path="/" component={ App } >
+      <IndexRoute component={RootPage} />
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ SignUpForm } />
-
+      <Route path="/cars" component={ Search } />
     </Route>
   </Router>
 );

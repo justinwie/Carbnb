@@ -77,6 +77,13 @@ button{
   padding: 10px 20px;
 }
 
+/* Clearfix */
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .form{
   box-sizing: border-box;
   width: 350px;
@@ -159,12 +166,6 @@ button{
   color: white;
 }
 
-body {
-  background: url(http://cdn.pcwallart.com/images/mountain-road-side-view-wallpaper-4.jpg);
-  background-size: 100% auto;
-  background-repeat: no-repeat;
-  background-position:top;
-}
 
 .login_nav_button{
   margin: 0 5px;
@@ -220,13 +221,44 @@ li:hover .user-menu {
   text-align: center;
 }
 
+.map{
+  float: right;
+  margin: 0px 50px;
+  width: 400px;
+  height: 500px;
+}
 
+body {
+  background: url(http://cdn.pcwallart.com/images/mountain-road-side-view-wallpaper-4.jpg);
+  background-size: 100% 700px;
+  background-repeat: no-repeat;
 
+}
 
-/* Clearfix */
-
-.group:after {
-  content: "";
+.rootMessage h3{
+  margin: 250px 0 0 0;
   display: block;
-  clear: both;
+  font-size: 36px;
+  font-weight: lighter;
+}
+
+.rootMessage h1{
+  margin: 0 auto;
+  display: block;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.rootFeatures{
+  text-align: center;
+}
+
+.rootFeatures h1{
+  display: block;
+  margin: 230px;
+  font-size: 40px;
+  color: darkgrey;
+  font-weight: bold;
+  padding: 0 0 40px 0;
+  border-bottom: 1px solid lightgrey;
 }
