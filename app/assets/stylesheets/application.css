@@ -136,10 +136,14 @@ button{
   box-shadow: 0 -5px 15px black;
 }
 
+.nav_header:hover{
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
 
 .navbar{
   margin: 10px auto;
-  width: 1200px;
+  width: 1000px;
   background-color: rgba(255, 255, 255, 0.0);
   color: #666666;
   z-index: 15;
@@ -242,7 +246,7 @@ body {
   font-weight: lighter;
 }
 
-.rootMessage h1{
+.rootMessage h1 {
   margin: 0 auto;
   display: block;
   font-size: 60px;
@@ -250,15 +254,55 @@ body {
 }
 
 .rootFeatures{
+  height: 100%;
   text-align: center;
 }
 
-.rootFeatures h1{
+.rootFeatures h1 {
   display: block;
-  margin: 230px;
+  margin: 230px 0 0 0;
   font-size: 40px;
   color: darkgrey;
   font-weight: bold;
-  padding: 0 0 40px 0;
+  padding: 0 0 20px 0;
   border-bottom: 1px solid lightgrey;
+}
+
+.rootCities{
+  margin: 0 auto;
+  display: block;
+  width: 1140px;
+}
+
+
+
+.root-featured-cities{
+  display: flex;
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+  background-position: center;
+  float: left;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 40px;
+  border-radius: 3%;
+}
+
+.featured-cities-header{
+
+}
+.featured-cities-header h2 {
+  font-weight: 400;
+  color: white;
+  width: 290px;
+  border: 1px solid lightgrey;
+  background: rgba(255,126,130,0.7);
+  padding: 5px;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+
+.featured-cities-header h2:hover{
+  background: rgba(255,126,130,1);
 }
