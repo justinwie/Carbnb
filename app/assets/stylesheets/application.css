@@ -121,6 +121,8 @@ button{
   padding: 5px;
   display: inline-block;
   width: 100%;
+  letter-spacing: 1px;
+
 }
 
 .signup_button:hover, .login_button:hover{
@@ -135,6 +137,7 @@ button{
   background-color: rgba(255, 255, 255, 0.7);
   position: fixed;
   box-shadow: 0 -8px 25px grey;
+    z-index: 100;
 }
 
 .nav_header:hover{
@@ -147,7 +150,7 @@ button{
   width: 1000px;
   background-color: rgba(255, 255, 255, 0.0);
   color: #666666;
-  z-index: 100;
+
 }
 
 .nav-bar-buttons, .header-group{
@@ -157,12 +160,16 @@ button{
 .logo{
   float:left;
   width: 90px;
-  border: 1px solid #4d4d4d
+  letter-spacing: 1px;
+  border: 1px solid #4d4d4d;
+
 }
 
 .login_nav_button, .signup_nav_button, .current_user_button{
   width: 80px;
-  border: 1px solid #4d4d4d
+  letter-spacing: 1px;
+  border: 1px solid #4d4d4d;
+
 }
 
 .login_nav_button:hover,
@@ -190,7 +197,7 @@ button{
 
 .header-group{
   position: relative;
-  z-index: 1;
+  z-index: 100;
 }
 
 
@@ -198,6 +205,8 @@ li:hover .user-menu {
   display: block;
   background-color: white;
   font-size: 14px;
+  position: absolute;
+  z-index: 100;
 }
 
 .user-menu > li{
@@ -217,13 +226,7 @@ li:hover .user-menu {
   font-weight: bold;
 }
 
-.welcomeMsg{
-  display: block;
-  font-size: 4px;
-  color: 	#FFFAFA;
-  font-weight: lighter;
-  text-align: center;
-}
+
 
 .map{
   margin-top: 200px;
@@ -232,6 +235,8 @@ li:hover .user-menu {
   width: 40%;
   height: 620px;
   margin: 60px 0 0 0 ;
+  z-index: 10;
+
 }
 
 
@@ -240,6 +245,13 @@ li:hover .user-menu {
   background: url(http://cdn.pcwallart.com/images/mountain-road-side-view-wallpaper-4.jpg);
   background-size: 100% 700px;
   background-repeat: no-repeat;
+}
+
+.rootMessage{
+  display: block;
+  color: 	#FFFAFA;
+  font-weight: lighter;
+  text-align: center;
 }
 
 .rootMessage h1 {
@@ -291,7 +303,7 @@ li:hover .user-menu {
   align-items: center;
   justify-content: center;
   margin: 40px 40px;
-  border-radius: 3%;
+  border-radius: 2%;
 }
 
 .featured-cities-header{
@@ -301,7 +313,6 @@ li:hover .user-menu {
   font-weight: 400;
   color: white;
   width: 290px;
-  border: 1px solid lightgrey;
   background: rgba(255,126,130,0.7);
   padding: 5px;
   font-size: 24px;
@@ -309,19 +320,28 @@ li:hover .user-menu {
 }
 
 .featured-cities-header h2:hover{
-  background: rgba(255,126,130,1);
+  background: rgba(255,126,130,0.9);
 }
 
 .search-bar-container{
   float: left;
-  margin: 0 60px;
+  margin: 0 0 0 100px;
 }
 
 .search-location-bar{
   height: 40px;
-  width: 400px;
+  width: 375px;
   padding: 0 10px;
   background-color: rgba(240, 240, 240, 0.5);
   font-size: 14px;
   letter-spacing: 1px;
+  border-radius: 3px;
+  box-shadow: 0px 1px 0px lightgrey;
+}
+
+.cardetailtest{
+  padding: 100px 0 0 0;
+  text-align: center;
+  font-size: 40px;
+  color: black;
 }

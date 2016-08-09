@@ -11,7 +11,10 @@ const Search = React.createClass({
     return(
       <div>
           <div className='map_container'>
-            <CarMap/>
+            <CarMap
+              lat={parseFloat(this.props.location.query.lat)}
+              lng={parseFloat(this.props.location.query.lng)}
+              />
           </div>
 
           <div>

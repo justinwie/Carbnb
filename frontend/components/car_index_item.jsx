@@ -1,15 +1,20 @@
 const React = require('react');
 const CarStore = require('../stores/car_store');
 const CarActions = require('../actions/car_actions');
+const hashHistory = require('react-router').hashHistory;
+
 
 const CarIndexItem = React.createClass({
+  _handleClick(){
+    const carId = this.props.car.id;
+    hashHistory.push('cars/' + carId);
+  },
+
   render(){
     return(
-      <li>
-        <p>Desc: {this.props.car.description}</p>
-        <p>Latitude: {this.props.car.lat}</p>
-        <p>Longitude: {this.props.car.lng}</p>
-      </li>
+      <div>
+        
+      </div>
     )
   }
 })

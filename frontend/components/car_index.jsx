@@ -29,7 +29,7 @@ const CarIndex = React.createClass({
         <h1>Cars: </h1>
         {
           cars_arr.map(function(car){
-            return <CarIndexItem car={car} />
+            return <CarIndexItem car={car} key={car.id}/>
           })
         }
       </div>

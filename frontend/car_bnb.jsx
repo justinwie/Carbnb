@@ -17,6 +17,7 @@ const SignUpForm = require('./components/signup_form.jsx')
 const NavBar = require('./components/navbar');
 const Search = require('./components/search');
 const RootPage = require('./components/root_page')
+const CarDetail = require('./components/car_detail')
 
 const App = require('./components/app.jsx')
 
@@ -27,6 +28,7 @@ const appRouter = (
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ SignUpForm } />
       <Route path="/cars" component={ Search } />
+      <Route path="/cars/:carId" component={ CarDetail } />
     </Route>
   </Router>
 );

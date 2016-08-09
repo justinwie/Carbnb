@@ -21,7 +21,6 @@ const App = React.createClass({
     if (SessionStore.isUserLoggedIn()) {
       return(
         <div>
-          <h1>Welcome Back, {SessionStore.currentUser().fname}! :)</h1>
         </div>
       )
     }
@@ -40,12 +39,10 @@ const App = React.createClass({
         <div className='rootNavBar'>
           <NavBar />
         </div>
-
-        <div className='welcomeMsg'>
-          {this.greeting()}
+        
+        <div>
           {this.props.children}
         </div>
-
 
       </div>
     )
