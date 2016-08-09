@@ -12,6 +12,8 @@ const SessionConstants = require('../constants/session_constants');
 
 const ErrorActions = require('../actions/error_actions');
 
+const SearchBar = require('./search_bar');
+
 
 const NavBar = React.createClass({
   getInitialState() {
@@ -100,6 +102,7 @@ const NavBar = React.createClass({
         <header className='nav_header'>
           <ul className='navbar group'>
             <li><button className='logo'>CarBnB</button></li>
+            <SearchBar/>
             <li>{ this.greeting() }</li>
           </ul>
           {modal}

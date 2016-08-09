@@ -28,7 +28,6 @@ const App = React.createClass({
     else {
       return(
         <nav>
-          <br></br>
         </nav>
       );
     }

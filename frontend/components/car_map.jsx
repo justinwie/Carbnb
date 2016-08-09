@@ -16,7 +16,7 @@ const CarMap = React.createClass({
 
     for (var index in cars){
       cars_arr.push(cars[index]);
-      
+
     };
 
     cars_arr.forEach(car => {
@@ -50,10 +50,9 @@ const CarMap = React.createClass({
   render(){
     return(
       <div className='map' ref='map'>
-
       </div>
-    )
+    );
   }
-})
+});
 
 module.exports = CarMap;

@@ -22,7 +22,7 @@ const App = require('./components/app.jsx')
 
 const appRouter = (
   <Router history={ hashHistory }>
-    <Route path="/" component={ App } >
+    <Route path="/" component={App} >
       <IndexRoute component={RootPage} />
       <Route path="/login" component={ LoginForm } />
       <Route path="/signup" component={ SignUpForm } />

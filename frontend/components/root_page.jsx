@@ -25,7 +25,9 @@ const RootPage = React.createClass({
 
   render(){
     return(
-      <div>
+      <div className='rootBackground'>
+      
+
         <div className='rootMessage'>
           <h3>Rent the Car</h3>
           <h1>Own the Adventure</h1>

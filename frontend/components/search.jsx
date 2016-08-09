@@ -10,12 +10,14 @@ const Search = React.createClass({
   render(){
     return(
       <div>
-        {
-          <div>
+          <div className='map_container'>
             <CarMap/>
+          </div>
+
+          <div>
             <CarIndex/>
           </div>
-        }
+
       </div>
     )
   }

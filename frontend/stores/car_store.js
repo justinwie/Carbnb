@@ -32,7 +32,7 @@ CarStore.find = function(id){
 };
 
 CarStore.__onDispatch = function(payload) {
-  
+
 
   switch (payload.actionType) {
     case CarConstants.CARS_RECEIVED:
