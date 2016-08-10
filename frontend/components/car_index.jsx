@@ -25,16 +25,15 @@ const CarIndex = React.createClass({
     }
 
     return(
-      <div>
-        <h1>Cars: </h1>
+      <div className='car_index'>
         {
           cars_arr.map(function(car){
             return <CarIndexItem car={car} key={car.id}/>
           })
         }
       </div>
-    )
+    );
   }
-})
+});
 
 module.exports = CarIndex;

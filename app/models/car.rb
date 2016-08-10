@@ -6,6 +6,7 @@ class Car < ActiveRecord::Base
     foreign_key: :owner_id,
     class_name: 'User'
 
+
   def self.in_bounds(bounds)
     min_lat = bounds['southWest']['lat'].to_f
     max_lat = bounds['northEast']['lat'].to_f

@@ -16,26 +16,70 @@ const CarDetail = React.createClass({
 
   _onChange(){
     const carId = parseInt(this.props.params.carId);
-    const potentialCar = (CarStore.find(carId) || {});
-    return { car: potentialCar };
+    const potentialCar = CarStore.find(carId);
+    this.setState({ car: potentialCar });
   },
 
   render(){
     const car = this.state.car;
-    
+    const carImage = car.image_url;
+    const image = {
+      backgroundImage: 'url(' + carImage + ')'
+    };
+
     return(
       <div className='car-detail-container'>
 
-        <div className='car-details'>
+          <div className='carImage' style={image}>
+          </div>
 
-          <h1 className="cardetailtest">
-            hello world
-            {car.model}
-          </h1>
+          <div className='car-text-details'>
+            <h1 >
+              {car.manufacturer} {car.model}
+            </h1>
 
+            <div className='car-details'>
+
+              <h2>year</h2>
+              <div className="carYear">
+                {car.year}
+              </div>
+
+
+              <h2>color</h2>
+              <div className="carColor">
+                {car.color}
+              </div>
+
+
+              <h2>style</h2>
+              <div className="carStyle">
+                {car.style}
+              </div>
+
+
+              <h2>prices</h2>
+              <div className="carPrice">
+                ${car.price} per week
+                  <br></br>
+                ${car.price * 4} per month
+              </div>
+
+
+              <h2>description</h2>
+              <div className="carDesc">
+                {car.description}
+              </div>
+
+            </div>
+
+            <div className='carReviews'>
+              <h2>reviews</h2>
+              <div>
+              </div>
+
+            </div>
         </div>
-
-
       </div>
     );
   }

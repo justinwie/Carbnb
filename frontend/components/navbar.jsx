@@ -9,6 +9,7 @@ const SignupForm = require('./signup_form');
 const SessionStore = require('../stores/session_store');
 const SessionActions = require('../actions/session_actions');
 const SessionConstants = require('../constants/session_constants');
+const hashHistory = require('react-router').hashHistory;
 
 const ErrorActions = require('../actions/error_actions');
 
@@ -31,6 +32,12 @@ const NavBar = React.createClass({
   handleLogout(e){
     e.preventDefault();
     SessionActions.logOut();
+  },
+
+  _handleLogoClick(){
+    hashHistory.push({
+      pathname: '/',
+    });
   },
 
   greeting() {
@@ -101,7 +108,7 @@ const NavBar = React.createClass({
       return (
         <header className='nav_header'>
           <ul className='navbar group'>
-            <li><button className='logo'>CarBnB</button></li>
+            <li><button className='logo' onClick={this._handleLogoClick}>CarBnB</button></li>
             <SearchBar/>
             <li>{ this.greeting() }</li>
           </ul>

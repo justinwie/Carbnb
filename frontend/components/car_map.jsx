@@ -43,7 +43,7 @@ const CarMap = React.createClass({
         lng: address.lng()
       }
       map.setCenter(coords);
-      map.setZoom(10);
+      map.setZoom(12);
     });
   },
 
@@ -53,7 +53,7 @@ const CarMap = React.createClass({
       const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
       const mapOptions = {
         center: {lat: this.props.lat, lng: this.props.lng},
-        zoom: 10
+        zoom: 12
       };
       this.map = new google.maps.Map(mapDOMNode, mapOptions);
 

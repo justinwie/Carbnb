@@ -26,7 +26,6 @@ const RootPage = React.createClass({
   render(){
     return(
       <div className='rootBackground'>
-      
 
         <div className='rootMessage'>
           <h3>Rent the Car</h3>
@@ -39,7 +38,7 @@ const RootPage = React.createClass({
           <div className='rootCities'>
             {
               Object.keys(this.cities).map(city => {
-                return <FeaturedCity key={city} city={city} img={this.cities[city][2]} />
+                return <FeaturedCity key={city} city={city} img={this.cities[city][2]} lat={this.cities[city][0]} lng={this.cities[city][1]}/>
               })
             }
           </div>
