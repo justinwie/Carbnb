@@ -422,6 +422,10 @@ li:hover .user-menu {
   cursor: pointer;
 }
 
+.car_image:hover img {
+  opacity: 0.8;
+}
+
 .car_info{
   position: relative;
   text-align: center;

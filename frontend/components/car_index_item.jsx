@@ -13,9 +13,9 @@ const CarIndexItem = React.createClass({
   render(){
     const car = this.props.car;
     return(
-      <div className='car_index_item' key='car.id' onClick={this._handleClick}>
+      <div className='car_index_item' key='car.id' >
         <div className='car_image_container'>
-          <div className='car_image'><img src={car.image_url}></img></div>
+          <div className='car_image' onClick={this._handleClick} ><img src={car.image_url}></img></div>
         </div>
 
         <div className='car_info'>

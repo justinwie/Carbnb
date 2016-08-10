@@ -6,6 +6,11 @@ class Car < ActiveRecord::Base
     foreign_key: :owner_id,
     class_name: 'User'
 
+  has_many :bookings,
+    primary_key: :id,
+    foreign_key: :car_id,
+    class_name: 'Booking'
+
 
   def self.in_bounds(bounds)
     min_lat = bounds['southWest']['lat'].to_f
