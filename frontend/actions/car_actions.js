@@ -52,6 +52,10 @@ const CarActions = {
       actionType: CarConstants.CAR_REMOVED,
       id: id
     })
+  },
+
+  createReview(data){
+    CarApiUtil.createReview(data, this.receiveSingleCar)
   }
 }
 

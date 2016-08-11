@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users
     resources :cars
     resources :bookings
+    resources :reviews
     resource :session
   end
 

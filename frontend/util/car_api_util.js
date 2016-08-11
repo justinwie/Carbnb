@@ -64,6 +64,17 @@ const CarApiUtil = {
         callback(resp)
       }
     })
+  },
+
+  createReview(data, callback){
+    $.ajax({
+      url: 'api/reviews',
+      type: 'POST',
+      data: data,
+      success(resp){
+        callback(resp);
+      }
+    })
   }
 }
 

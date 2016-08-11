@@ -1,10 +1,13 @@
 const React = require('react');
-const CarStore = require('../stores/car_store')
-const CarActions = require('../actions/car_actions')
+const CarStore = require('../stores/car_store');
+const CarActions = require('../actions/car_actions');
 
-const SessionStore = require('../stores/session_store')
+const SessionStore = require('../stores/session_store');
 
-const BookingForm = require('./booking_form')
+const BookingForm = require('./booking_form');
+const ReviewForm = require('./review_form');
+const Reviews = require('./reviews');
+
 
 const CarDetail = React.createClass({
   getInitialState(){
@@ -29,15 +32,21 @@ const CarDetail = React.createClass({
       backgroundImage: 'url(' + carImage + ')'
     };
 
+    const allReviews = (car.reviews || []);
+    let reviewItem = 'none yet';
+
+    debugger
+    if (allReviews.length > 0) {
+      reviewItem = allReviews.map(function(singleReview){
+        return <Reviews key={singleReview.id} review={singleReview} />;
+      });
+    }
+
     return(
-
       <div className='car-detail-container'>
-        <div className='booking-container'>
-          <BookingForm car={car} />
-        </div>
-
-
-
+          <div className='booking-container'>
+            <BookingForm car={car} />
+          </div>
 
           <div className='carImage' style={image}>
           </div>
@@ -54,24 +63,20 @@ const CarDetail = React.createClass({
                 {car.description}
               </div>
 
-
               <h2>year</h2>
               <div className="carYear">
                 {car.year}
               </div>
-
 
               <h2>color</h2>
               <div className="carColor">
                 {car.color}
               </div>
 
-
               <h2>style</h2>
               <div className="carStyle">
                 {car.style}
               </div>
-
 
               <h2>prices</h2>
               <div className="carPrice">
@@ -80,14 +85,16 @@ const CarDetail = React.createClass({
                 ${car.price * 4} per month
               </div>
 
-            </div>
-
-            <div className='carReviews'>
               <h2>reviews</h2>
-              <div>
+              <div className='carReview'>
+                { reviewItem }
               </div>
+          </div>
 
-            </div>
+          <div className='carReview'>
+            <ReviewForm car={car}/>
+          </div>
+
         </div>
       </div>
     );

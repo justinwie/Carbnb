@@ -371,7 +371,7 @@ li:hover .user-menu {
   font-size: 18px;
 }
 
-.carYear, .carPrice, .carColor, .carStyle, .carDesc{
+.carYear, .carPrice, .carColor, .carStyle, .carDesc, .carReview{
   margin: 0 0 20px 15px;
   text-transform: lowercase;
 }
@@ -487,4 +487,16 @@ li:hover .user-menu {
   border: none;
   color: white;
   background: yellowgreen;
+}
+
+.review_form h1 {
+  font-size: 16px;
+}
+
+.carReviewForm{
+
+}
+
+.review_form_text{
+
 }
