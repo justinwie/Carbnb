@@ -6,10 +6,12 @@ class Booking < ActiveRecord::Base
     foreign_key: :renter_id,
     class_name: 'user'
 
-  belongs_to :car
+  belongs_to :car,
     primary_key: :id,
     foreign_key: :car_id,
     class_name: 'car'
+
+
 
 
 end

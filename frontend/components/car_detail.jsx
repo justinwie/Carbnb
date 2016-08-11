@@ -4,6 +4,8 @@ const CarActions = require('../actions/car_actions')
 
 const SessionStore = require('../stores/session_store')
 
+const BookingForm = require('./booking_form')
+
 const CarDetail = React.createClass({
   getInitialState(){
     return { car: {}, user: SessionStore.currentUser() };
@@ -28,7 +30,14 @@ const CarDetail = React.createClass({
     };
 
     return(
+
       <div className='car-detail-container'>
+        <div className='booking-container'>
+          <BookingForm car={car} />
+        </div>
+
+
+
 
           <div className='carImage' style={image}>
           </div>
@@ -39,6 +48,12 @@ const CarDetail = React.createClass({
             </h1>
 
             <div className='car-details'>
+
+              <h2>description</h2>
+              <div className="carDesc">
+                {car.description}
+              </div>
+
 
               <h2>year</h2>
               <div className="carYear">
@@ -63,12 +78,6 @@ const CarDetail = React.createClass({
                 ${car.price} per week
                   <br></br>
                 ${car.price * 4} per month
-              </div>
-
-
-              <h2>description</h2>
-              <div className="carDesc">
-                {car.description}
               </div>
 
             </div>

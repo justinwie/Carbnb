@@ -34,6 +34,7 @@ const CarApiUtil = {
     $.ajax({
       url: 'api/cars/',
       type: 'POST',
+      data: carData,
       success(resp){
         callback(resp)
       },

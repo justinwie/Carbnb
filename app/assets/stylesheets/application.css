@@ -334,7 +334,7 @@ li:hover .user-menu {
   height: 40px;
   width: 375px;
   padding: 0 10px;
-  background-color: rgba(240, 240, 240, 0.5);
+  background-color: rgba(230, 230, 230, 0.7);
   font-size: 14px;
   letter-spacing: 1px;
   border-radius: 3px;
@@ -429,5 +429,62 @@ li:hover .user-menu {
 .car_info{
   position: relative;
   text-align: center;
+}
+
+.booking-form{
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  right: 170px;
+  top: 380px;
   width: 300px;
+  background: white;
+  color: black;
+  border: 1px solid lightgrey;
+}
+
+.booking-form h1 {
+  font-size: 40px;
+  display: block;
+  font-weight: bold;
+  text-align: center;
+}
+
+.booking-form h2 {
+  font-size: 20px;
+  display: block;
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.booking-form-dates{
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+  background-color: #eee;
+}
+
+.booking-form-datepicker{
+  width: 150px;
+  vertical-align: middle;
+  margin: 10px;
+}
+
+.booking-form-datepicker h3 {
+  font-size: 16px;
+  width: 80px;
+  margin: 5px 10px;
+  text-align: left;
+}
+
+.date-dropdown{
+  width: 80px;
+  font-size: 14px;
+}
+
+.bookButton{
+  width: 260px;
+  border: none;
+  color: white;
+  background: yellowgreen;
 }

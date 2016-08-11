@@ -4,7 +4,6 @@ const hashHistory = require('react-router').hashHistory;
 
 const FeaturedCity = React.createClass({
   _handleClick(){
-    debugger
 
     const coords = {
       lat: this.props.lat,

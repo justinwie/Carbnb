@@ -14,7 +14,7 @@ class Api::CarsController < ApplicationController
     if @car.save
       render "api/cars/show"
     else
-      render json: @cars.errors.full_messages, status: 422
+      render json: @car.errors.full_messages, status: 422
     end
   end
 
@@ -28,7 +28,7 @@ class Api::CarsController < ApplicationController
     if @car.update(car_params)
       render "api/cars/show"
     else
-      render json: @cars.errors.full_messages, status: 422
+      render json: @car.errors.full_messages, status: 422
     end
   end
 
