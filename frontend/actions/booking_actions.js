@@ -5,10 +5,10 @@ const BookingConstants = require('../constants/booking_constants');
 const BookingApiUtil = require('../util/bookings_api_util');
 
 const BookingActions = {
-  createBooking(bookingData){
+  createBooking(booking, cb){
     BookingApiUtil.createBooking(
-      bookingData,
-      this.receiveBookings,
+      {booking},
+      cb,
       ErrorActions.setErrors
     )
   },
@@ -33,4 +33,5 @@ const BookingActions = {
       id: id
     })
   }
-}
+};
+module.exports = BookingActions;

@@ -11,7 +11,6 @@ const CarIndex = React.createClass({
   componentDidMount(){
     CarStore.addListener(this._handleChange);
     CarActions.fetchAllCars();
-
   },
 
   _handleChange(){

@@ -17,14 +17,20 @@ const ReviewForm = React.createClass({
   },
 
   _handleRating(e){
+    e.preventDefault();
+
     this.setState({rating: e.target.value})
   },
 
   _handleDescription(e){
-    this.setState({description: e.target.value})
+    e.preventDefault();
+
+    this.setState({ description: e.target.value})
   },
 
-  _handleSubmit(){
+  _handleSubmit(e){
+    e.preventDefault();
+
     const data = {
       description: this.state.description,
       rating: parseInt(this.state.rating),
@@ -57,8 +63,8 @@ const ReviewForm = React.createClass({
             value={this.state.description}
             onChange={this._handleDescription}
           />
-        </form>
         <button type='submit'>submit!</button>
+        </form>
       </div>
     )
   }

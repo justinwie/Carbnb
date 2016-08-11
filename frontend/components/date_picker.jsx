@@ -2,12 +2,14 @@ const React = require('react');
 const Moment = require('moment');
 const DatePicker = require('react-datepicker');
 
-const Dates = React.createClass({
+const ReactDatePicker = React.createClass({
+
   render() {
     return (
       <DatePicker
         selected={this.props.date}
         onChange={this.props.action}
+
         placeholderText={this.props.placeholder}
         className='date-dropdown'
       />
@@ -15,4 +17,4 @@ const Dates = React.createClass({
   }
 });
 
-module.exports = Dates;
+module.exports = ReactDatePicker;

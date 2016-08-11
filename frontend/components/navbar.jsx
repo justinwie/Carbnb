@@ -34,7 +34,9 @@ const NavBar = React.createClass({
     SessionActions.logOut();
   },
 
-  _handleLogoClick(){
+  _handleLogoClick(e){
+    e.preventDefault();
+    
     hashHistory.push({
       pathname: '/',
     });

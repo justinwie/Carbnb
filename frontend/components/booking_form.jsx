@@ -1,7 +1,6 @@
 const React = require('react');
 
-const DatePicker = require('./date_picker');
-const moment = require('moment');
+const ReactDatePicker = require('./date_picker');
 
 const HashHistory = require('react-router').hashHistory;
 const CarStore = require('../stores/car_store');
@@ -11,7 +10,7 @@ const BookingStore = require('../stores/booking_store');
 
 const BookingForm = React.createClass({
   getInitialState(){
-    return { startDate: null, endDate: null }
+    return { startDate: null, endDate: null, booked: false }
   },
 
   componentWillReceiveProps(props) {
@@ -26,16 +25,26 @@ const BookingForm = React.createClass({
     this.setState({ endDate: date })
   },
 
-  _handleSubmit(){
-    const user = SessionStore.currentUser();
+  _successfulBooking() {
+    debugger;
+    let user = SessionStore.currentUser();
+    this.setState({ booked: true })
+    alert(`Congrats ${user.fname}! Your ${this.props.car.manufacturer} ${this.props.car.model} will be ready from ${this.state.startDate._d.getMonth()+1}/${this.state.startDate._d.getDay()} to ${this.state.endDate._d.getMonth()+1}/${this.state.endDate._d.getDay()}`)
+  },
 
-    if (user) {
+  _handleSubmit(e){
+    e.preventDefault();
+    const user = SessionStore.currentUser();
+    if (SessionStore.isUserLoggedIn()) {
       BookingActions.createBooking({
         renter_id: user.id,
         car_id: this.props.car.id,
-        start_date: this.state.start_date,
-        end_date: this.state.end_date
-      })
+        start_date: this.state.startDate.format(),
+        end_date: this.state.endDate.format()
+      }, this._successfulBooking);
+    }
+    else {
+      alert('Must login in order to book!')
     }
   },
 
@@ -52,7 +61,7 @@ const BookingForm = React.createClass({
 
             <div className='booking-form-datepicker'>
               <h3>From:</h3>
-              <DatePicker
+              <ReactDatePicker
                 action={this.setStartDate}
                 date={this.state.startDate}
                 placeholder='mm/dd/yyyy'
@@ -61,18 +70,14 @@ const BookingForm = React.createClass({
 
             <div className='booking-form-datepicker'>
               <h3>Until:</h3>
-              <DatePicker
+              <ReactDatePicker
                 action={this.setEndDate}
                 date={this.state.endDate}
                 placeholder='mm/dd/yyyy'
               />
             </div>
-
-
           </div>
-
-
-          <button className='bookButton' type='submit'>Book!</button>
+          <button className='bookButton' type='submit'>Own the Adventure</button>
         </form>
       </div>
     )

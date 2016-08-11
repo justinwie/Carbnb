@@ -489,14 +489,14 @@ li:hover .user-menu {
   background: yellowgreen;
 }
 
+.bookButton:hover{
+  opacity: 0.8;
+}
+
 .review_form h1 {
   font-size: 16px;
 }
 
-.carReviewForm{
-
-}
-
-.review_form_text{
-
+.rating {
+  font-weight: bold;
 }

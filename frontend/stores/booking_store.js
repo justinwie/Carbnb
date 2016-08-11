@@ -8,10 +8,9 @@ let _bookings = {};
 
 const _resetAllBookings = function(bookings){
   _bookings = {};
-
-  bookings.forEach(function(booking){
-    _bookings[booking.id] = booking;
-  });
+  for (var i in bookings) {
+    _bookings[bookings[i].id] = bookings[i];
+  }
 }
 
 const _removeBooking = function(booking) {

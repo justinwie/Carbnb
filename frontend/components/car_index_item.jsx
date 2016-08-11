@@ -5,7 +5,9 @@ const hashHistory = require('react-router').hashHistory;
 
 
 const CarIndexItem = React.createClass({
-  _handleClick(){
+  _handleClick(e){
+    e.preventDefault();
+    
     const carId = this.props.car.id;
     hashHistory.push('cars/' + carId);
   },

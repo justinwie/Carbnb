@@ -3,7 +3,8 @@ const hashHistory = require('react-router').hashHistory;
 
 
 const FeaturedCity = React.createClass({
-  _handleClick(){
+  _handleClick(e){
+    e.preventDefault();
 
     const coords = {
       lat: this.props.lat,
