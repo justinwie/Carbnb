@@ -34,15 +34,25 @@ const NavBar = React.createClass({
     SessionActions.logOut();
   },
 
+  _handleHostCar(e){
+    e.preventDefault();
+
+    hashHistory.push({
+      pathname: '/newcar',
+    });
+  },
+
   _handleLogoClick(e){
     e.preventDefault();
-    
+
     hashHistory.push({
       pathname: '/',
     });
   },
 
   greeting() {
+    let lnameInitial = SessionStore.currentUser().lname.slice(0,1)
+    
       if (SessionStore.isUserLoggedIn()) {
         return (
           <div>
@@ -51,10 +61,11 @@ const NavBar = React.createClass({
                 <li>
 
                   <button className='current_user_button'>
-                    {SessionStore.currentUser().fname}
+                    {SessionStore.currentUser().fname} {lnameInitial}.
                   </button>
 
                   <ul className='user-menu'>
+                    <li onClick={this._handleHostCar}>Host your car</li>
                     <li>Cars</li>
                     <li>Bookings</li>
                     <li onClick={this.handleLogout}>Log Out</li>

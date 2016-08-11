@@ -258,9 +258,9 @@ li:hover .user-menu {
 .rootMessage h1 {
   margin: 0 auto;
   display: block;
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bold;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
 }
 
 .rootMessage h3 {
@@ -499,4 +499,54 @@ li:hover .user-menu {
 
 .rating {
   font-weight: bold;
+}
+
+.carForm {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin: 0px -200px;
+  box-sizing: border-box;
+  width: 400px;
+}
+
+.carForm h1 {
+  font-size: 42px;
+  color: black;
+  letter-spacing: 2px;
+  margin: 0 0 20px 0;
+}
+
+.carFormInput{
+  border-color: #ffb400;
+  font-family: helvetica;
+  font-weight: lighter;
+  font-size: 14px;
+  background-color: white;
+
+
+  border-radius: 2px;
+  border: 1px solid #cccccc;
+
+  height: 40px;
+  margin: 10px 0px;
+  padding: 6px;
+  display: inline-block;
+  width: 100%;
+}
+
+.carFormButton{
+  margin: 20px 0;
+  font-size: 16px;
+  width: 400px;
+  height: 60px;
+  border: none;
+  color: white;
+  background: yellowgreen;
+}
+
+.carFormButton:hover{
+  opacity: 0.8;
+
 }

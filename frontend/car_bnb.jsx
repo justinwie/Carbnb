@@ -18,6 +18,7 @@ const NavBar = require('./components/navbar');
 const Search = require('./components/search');
 const RootPage = require('./components/root_page')
 const CarDetail = require('./components/car_detail')
+const CarForm = require('./components/car_form')
 
 const App = require('./components/app.jsx')
 
@@ -29,6 +30,7 @@ const appRouter = (
       <Route path="/signup" component={ SignUpForm } />
       <Route path="/cars" component={ Search } />
       <Route path="/cars/:carId" component={ CarDetail } />
+      <Route path="/newcar" component={ CarForm } />
     </Route>
   </Router>
 );
@@ -36,5 +38,10 @@ const appRouter = (
 document.addEventListener("DOMContentLoaded", function(){
   const content = document.getElementById('content');
   Modal.setAppElement(document.body);
+
+  if (window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  };
+
   ReactDOM.render(appRouter, content);
 });

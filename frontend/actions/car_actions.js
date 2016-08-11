@@ -13,18 +13,18 @@ const CarActions = {
     CarApiUtil.fetchSingleCar(id, this.receiveSingleCar)
   },
 
-  createCar(car){
+  createCar(car, cb){
     CarApiUtil.createCar(
       car,
-      this.receiveSingleCar,
+      cb,
       ErrorActions.setErrors
     )
   },
 
-  updateCar(car){
+  updateCar(car, cb){
     CarApiUtil.updateCar(
       car,
-      this.receiveSingleCar,
+      cb,
       ErrorActions.setErrors
     )
   },

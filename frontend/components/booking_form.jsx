@@ -29,7 +29,7 @@ const BookingForm = React.createClass({
     debugger;
     let user = SessionStore.currentUser();
     this.setState({ booked: true })
-    alert(`Congrats ${user.fname}! Your ${this.props.car.manufacturer} ${this.props.car.model} will be ready from ${this.state.startDate._d.getMonth()+1}/${this.state.startDate._d.getDay()} to ${this.state.endDate._d.getMonth()+1}/${this.state.endDate._d.getDay()}`)
+    alert(`Congrats ${user.fname}! Your ${this.props.car.manufacturer} ${this.props.car.model} will be ready from ${this.state.startDate._d.getMonth()+1}/${this.state.startDate._d.getDate()} to ${this.state.endDate._d.getMonth()+1}/${this.state.endDate._d.getDate()}`)
   },
 
   _handleSubmit(e){

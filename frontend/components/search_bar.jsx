@@ -12,9 +12,8 @@ const SearchBar = React.createClass({
     this.autocompleteListener = google.maps.event.addListener(window.autocomplete, 'place_changed', this._handleSubmit)
   },
 
-  _handleSubmit(e) {
-    e.preventDefault();
-    
+  _handleSubmit() {
+
     const address = window.autocomplete.getPlace();
     if (!address) {
       return;

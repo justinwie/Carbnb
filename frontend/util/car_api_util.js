@@ -30,11 +30,11 @@ const CarApiUtil = {
     })
   },
 
-  createCar(carData, callback, error){
+  createCar(car, callback, error){
     $.ajax({
       url: 'api/cars/',
       type: 'POST',
-      data: carData,
+      data: {car},
       success(resp){
         callback(resp)
       },
@@ -49,7 +49,7 @@ const CarApiUtil = {
     $.ajax({
       url: `api/cars/${car.id}`,
       type: 'PATCH',
-      data: car,
+      data: {car},
       success(resp){
         callback(resp)
       }
