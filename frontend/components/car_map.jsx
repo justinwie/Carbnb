@@ -25,6 +25,13 @@ const CarMap = React.createClass({
 
     CarStore.addListener(this.createMarkers);
     this._searchLocationListener();
+
+    let map = this.map
+    let center = {lat: this.props.lat, lng: this.props.lng}
+    let latlng = new google.maps.LatLng(center)
+    google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
+        // alert(map.getBounds().contains(latlng))
+    });
   },
 
 
@@ -93,7 +100,13 @@ const CarMap = React.createClass({
 
   render(){
     return(
-      <div className='map' ref='map'>
+      <div>
+        <div className='map' ref='map'>
+        </div>
+
+        <div>
+          <CarIndex inBounds={this.inBounds} />
+        </div>
       </div>
     );
   }

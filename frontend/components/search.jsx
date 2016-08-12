@@ -24,9 +24,7 @@ const Search = React.createClass({
               />
           </div>
 
-          <div>
-            <CarIndex/>
-          </div>
+
 
       </div>
     )
