@@ -77,7 +77,7 @@ const BookingForm = React.createClass({
               />
             </div>
           </div>
-          <button className='bookButton' type='submit'>Own the Adventure</button>
+          <button className='bookButton' type='submit'>Book!</button>
         </form>
       </div>
     )

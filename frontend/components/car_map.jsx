@@ -10,6 +10,9 @@ const CarStore = require('../stores/car_store')
 const CarIndex = require('./car_index')
 
 const CarMap = React.createClass({
+  getInitialState(){
+    return { bounds: null }
+  },
 
   componentDidMount(){
     this.infowindow = new google.maps.InfoWindow();
@@ -29,9 +32,10 @@ const CarMap = React.createClass({
     let map = this.map
     let center = {lat: this.props.lat, lng: this.props.lng}
     let latlng = new google.maps.LatLng(center)
-    google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
-        // alert(map.getBounds().contains(latlng))
-    });
+
+    google.maps.event.addListener(map, 'bounds_changed', function () {
+      this.setState({bounds: map.getBounds()});
+    }.bind(this));
   },
 
 
@@ -88,16 +92,6 @@ const CarMap = React.createClass({
     });
   },
 
-
-  // inBounds(latLng){
-  //   let map = this.map
-  //
-  //   google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
-  //     return map.getBounds().contains(latLng)
-  //   });
-  //
-  // },
-
   render(){
     return(
       <div>
@@ -105,7 +99,7 @@ const CarMap = React.createClass({
         </div>
 
         <div>
-          <CarIndex inBounds={this.inBounds} />
+          <CarIndex bounds={this.state.bounds} map={this.map}/>
         </div>
       </div>
     );

@@ -26,11 +26,13 @@ const CarIndex = React.createClass({
     let cars_arr = []
 
     for (var idx in this.state.cars){
-      let lat = this.state.cars[idx].lat;
       let lng = this.state.cars[idx].lng;
-      // if (this.props.inBounds({ lat: lat, lng: lng }) ){
+      let lat = this.state.cars[idx].lat;
+      let latLng = new google.maps.LatLng(lat, lng)
+
+      if (this.props.bounds && this.props.bounds.contains(latLng)){
         cars_arr.push(this.state.cars[idx])
-      // }
+      };
     }
 
     return(

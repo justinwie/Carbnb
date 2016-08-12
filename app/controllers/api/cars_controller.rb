@@ -1,7 +1,7 @@
 class Api::CarsController < ApplicationController
   def index
     @cars = Car.all
-
+    
     if params[:user]
       @cars = Car.where(owner_id: params[:user].to_i)
     end

@@ -1,104 +1,76 @@
 # CarBnB
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+carbnb-jw.herokuapp.com
 
-[heroku]: http://www.herokuapp.com
+CarBnB is a full-stack web application inspired by AirBnb.
 
-## Minimum Viable Product
+It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.
 
-CarBnB is a web application inspired by AirBnB that will be built using Ruby on Rails and React.  By the end of Week 9, this app will, at a minimum, satisfy the following criteria:
+![image of splash page] [splash-page1]
+![image of splash page] [splash-page2]
+[splash-page1]: docs/Screenshots/SplashPage1.png
+[splash-page2]: docs/Screenshots/SplashPage2.png
 
-- [ ] Hosting on Heroku
-- [ ] New account creation, login, and guest/demo login
-- [ ] A production README, replacing this README (**NB**: check out the [sample production README](docs/production_readme.md) -- you'll write this later)
-- [ ] Search for cars by available cities/dates
-- [ ] Select a specific car with further filters (location, availability, etc.) and viewing these cars on a map
-- [ ] View a specific car and its details and reviews and request to book
-- [ ] Finalize the transaction with a payment option
-- [ ] User profiles, including past and future rentals
-- [ ] Smooth, bug-free navigation
-- [ ] Adequate seed data to demonstrate the site's features
-- [ ] Adequate CSS styling
+## Features & Implementation
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Cycles][flux-cycles]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+### Car Rendering
 
-[views]: docs/views.md
-[components]: docs/components.md
-[flux-cycles]: docs/flux-cycles.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
+  Cars are stored in the database through a `cars` table that contains the columns `first name`, `last name`, `manufacturer`, `model`, `style`, `year`, `image_url`, `description`, `price`, `color`, `owner_id`,`lat`, and `lng`. The users and cars table are joined through `owner_id`.
 
-## Implementation Timeline
+  `CarIndexItem` and `CarDetails` use `image_url` to render a picture of each car. `CarIndexItem` also contains basic details about the car. `CarDetails` contain more in-depth information about the car along with booking and reviews.
 
-### Phase 1: Backend setup and Front End User Authentication (2 days, W1 W 6pm)
+![image of car index][car-detail]
 
-**Objective:** Functioning rails project with front-end Authentication
-- [ ] host on Heroku
-- [ ] create new project
-- [ ] authentication backend setup
-- [ ] set up flux cycle for frontend auth
-- [ ] user signup/signin components
-- [ ] blank landing component after signin
-- [ ] style front end auth
+[car-detail]: docs/Screenshots/CarDetails.png
 
+`CarsIndex` render method:
 
-### Phase 2: Cars Model, API, and components (1 days, W1 Th 6pm)
+```javascript
+  render() {
+    return (
+      <div className='car_index'>
+        {
+          cars_arr.map(function(car){
+            return <CarIndexItem car={car} key={car.id}/>
+          })
+        }
+      </div>
+    );  
+  }
+```
 
-**Objective:** Cars can be created, read, edited and destroyed through
-the API.
+### Search
 
-- [ ] Cars CRUD API
-- [ ] Cars seed
-- [ ] Cars index
-- [ ] Car item detail
+Search utilizes the Google Maps API and uses the car's `lat` and `lng` attributes to create a marker on the map. The search bar is implemented with Google Places API - specifically, Place Autocomplete. A listener is set on the autocomplete bar and after a user types in an address or a city, the latitude and longitude are extracted from the address information and sent as params to the map component. The map component then generates of a viewport based on those coordinates and creates a marker for each of the cars. A marker also contains basic information through a click.
+
+![image of search] [search-screenshot]
+[search-screenshot]: docs/Screenshots/Search.png
 
 
-### Phase 3: Map, Filters, NavBar, and Search Components (2 day, W2 Mon 6pm)
+### Bookings
 
-**Objective:** Cars can be searched by location, availability, and filtered.
+Bookings are stored in the database through a `bookings` join table that contains the columns `start_date`, `end_date`, `car_id`, and `renter_id`. Bookings belong to both the car and user that is renting.
 
-- [ ] Maps component
-- [ ] Filters Component
-- [ ] Style Map and Filters
-- [ ] NavBar Component
-- [ ] Search Component
+Every time `CarDetail` is rendered, the `BookingForm` is also rendered. Users are only allowed to book a car if they are logged in (regulated by the `SessionStore`) and cars are booked by the selection of a start date and end date.
 
 
-### Phase 4: Profile, Booking, Review, and ReviewIndex Components (1 day, W2 Tu 6pm)
 
-**Objective:** Cars can be booked and reviewed. Profiles can be viewed.
+### Reviews
 
-- [ ] Profile component
-- [ ] Style the Profile
-- [ ] Booking Component
-- [ ] Style the Bookings
-- [ ] Review Component
-- [ ] ReviewIndex Component
-- [ ] Style the Reviews
+Reviews are stored in the database through a `reviews` table that contains the columns `car_id`, `user_id`, `description`, and `rating`. Reviews belong to both the car and the user that wrote it.
 
-### Phase 5: Landing Page (1 day, W2 We 6pm)
-
-**objective:** Landing page will have car visuals and a guest login button.
-
-- [ ] Landing Page
-- [ ] Style Landing Page
-
-### Phase 6: - Host Cars (1 day, W2 Th 6pm)
-
-**objective:** Cars can be hosted by the user
-
-- [ ] Style profile page
-- [ ] Polish the user experience
+On the frontend, the `CarDetails` component renders `ReviewsIndex` which is composed of all of the car's reviews. Each review is rendered with the `Review` component. There is no need for a `ReviewStore` because the reviews are dependent on the individual car so it is taken care of every time `fetchCar(id)`is called.
 
 
-### Bonus Features (TBD)
-- [ ] Instant-book
-- [ ] Messaging
-- [ ] Guidebooks
-- [ ] Rental history
-- [ ] Autoclicks into the first input field
+
+## Future Directions for the Project
+
+In addition to the features already implemented, I plan to continue work on this project. The next steps for CarBnb are outlined below:
+
+### User/Host Profiles
+
+I plan to allow the user to view their cars, view their bookings, and edit their cars through the account page.
+
+### Direct Messaging
+
+Another feature I would like to implement is messaging, allowing for the user to contact and communicate with car hosts.
