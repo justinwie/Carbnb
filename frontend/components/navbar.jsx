@@ -51,9 +51,8 @@ const NavBar = React.createClass({
   },
 
   greeting() {
-    let lnameInitial = SessionStore.currentUser().lname.slice(0,1)
-    
       if (SessionStore.isUserLoggedIn()) {
+        let lnameInitial = SessionStore.currentUser().lname.slice(0,1)
         return (
           <div>
             <hgroup className='header-group'>

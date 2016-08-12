@@ -31,5 +31,9 @@ BookingStore.__onDispatch = function(payload){
   }
 };
 
+BookingStore.all = function(){
+  return Object.assign({}, _bookings)
+};
+
 
 module.exports = BookingStore;

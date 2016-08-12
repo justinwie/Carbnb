@@ -9,6 +9,16 @@ const BookingsApiUtil = {
     })
   },
 
+  fetchCarsBookings(carId, cb){
+    $.ajax({
+      url: `api/bookings?car=${carId}`,
+      type: 'GET',
+      success(resp){
+        cb(resp)
+      }
+    })
+  },
+
   createBooking(bookingData, cb, error){
     $.ajax({
       url: 'api/bookings',

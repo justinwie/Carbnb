@@ -5,6 +5,15 @@ const BookingConstants = require('../constants/booking_constants');
 const BookingApiUtil = require('../util/bookings_api_util');
 
 const BookingActions = {
+
+  fetchUsersBookings(userId){
+    BookingApiUtil.fetchUsersBookings(userId, this.receiveBookings)
+  },
+
+  fetchCarsBookings(carId){
+    BookingApiUtil.fetchCarsBookings(carId, this.receiveBookings)
+  },
+
   createBooking(booking, cb){
     BookingApiUtil.createBooking(
       {booking},

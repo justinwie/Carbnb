@@ -7,6 +7,7 @@ const SessionStore = require('../stores/session_store');
 const BookingForm = require('./booking_form');
 const ReviewForm = require('./review_form');
 const Reviews = require('./reviews');
+const BookingIndex = require('./booking_index');
 
 
 const CarDetail = React.createClass({
@@ -48,6 +49,11 @@ const CarDetail = React.createClass({
       <div className='car-detail-container'>
           <div className='booking-container'>
             <BookingForm car={car} />
+          </div>
+
+          <div className='bookingsIndex'>
+            <h1>Currently Booked Dates:</h1>
+            <BookingIndex car={car} />
           </div>
 
           <div className='carImage' style={image}>

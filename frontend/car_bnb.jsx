@@ -19,8 +19,10 @@ const Search = require('./components/search');
 const RootPage = require('./components/root_page')
 const CarDetail = require('./components/car_detail')
 const CarForm = require('./components/car_form')
+const BookingActions = require('./actions/booking_actions')
 
 const App = require('./components/app.jsx')
+
 
 const appRouter = (
   <Router history={ hashHistory }>

@@ -1,15 +1,19 @@
 const React = require('react');
 const SessionStore = require('../stores/session_store')
 const CarActions = require('../actions/car_actions')
-
+const UploadButton = require('./upload_button')
 
 const CarForm = React.createClass({
   getInitialState() {
-    return { lat: 0, lng: 0, manufacturer: "", model: "", year: null, style: "", color: "", price: null, description: "", image_url: "", owner_id: SessionStore.currentUser().id }
+    return { lat: 0, lng: 0, manufacturer: "", model: "", year: null, style: "", color: "", price: null, description: "", image_url: "", owner_id: SessionStore.currentUser().id, buttonText: ['blank', 'Upload Picture'] }
   },
 
   _success(){
     alert('Success! Your car has been uploaded')
+  },
+
+  updateUrl(url) {
+    this.setState({ image_url: url, buttonText: ['success', 'Picture successfully uploaded!'] });
   },
 
   _handleSubmit(){
@@ -102,8 +106,9 @@ const CarForm = React.createClass({
             className='carFormInput'
           />
 
+        <UploadButton updateUrl={this.updateUrl} buttonText={this.state.buttonText}/>
 
-        <button className='carFormButton' type='submit'>Add Car</button>
+        <button className='carFormButton' type='submit'>Add Your Car</button>
         </form>
       </div>
     );

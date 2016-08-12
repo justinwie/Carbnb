@@ -5,6 +5,9 @@ class Api::BookingsController < ApplicationController
     if params[:user]
       @bookings = Booking.where(renter_id: params[:user].to_i)
     end
+    if params[:car]
+      @bookings = Booking.where(car_id: params[:car].to_i)
+    end
     render json: @bookings
   end
 

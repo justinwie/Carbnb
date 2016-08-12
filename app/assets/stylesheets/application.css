@@ -348,8 +348,10 @@ li:hover .user-menu {
 
 
 .car-text-details{
-  margin: 0 auto;
-  width: 700px;
+  position: absolute;
+  left: 15%;
+  top: 470px;
+  width: 40%;
   padding: 20px 0 0 0;
 }
 
@@ -371,7 +373,11 @@ li:hover .user-menu {
   font-size: 18px;
 }
 
-.carYear, .carPrice, .carColor, .carStyle, .carDesc, .carReview{
+.carDesc{
+  margin: 0 0 20px 15px;
+}
+
+.carYear, .carPrice, .carColor, .carStyle, .carReview{
   margin: 0 0 20px 15px;
   text-transform: lowercase;
 }
@@ -435,7 +441,7 @@ li:hover .user-menu {
   display: block;
   margin: 0 auto;
   position: absolute;
-  right: 170px;
+  right: 10%;
   top: 380px;
   width: 300px;
   background: white;
@@ -538,7 +544,7 @@ li:hover .user-menu {
 
 .carFormButton{
   margin: 20px 0;
-  font-size: 16px;
+  font-size: 18px;
   width: 400px;
   height: 60px;
   border: none;
@@ -548,5 +554,31 @@ li:hover .user-menu {
 
 .carFormButton:hover{
   opacity: 0.8;
+}
 
+.carFormInput textarea {
+  height: 200px;
+}
+
+.bookingsIndex{
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  right: 10%;
+  top: 780px;
+  width: 300px;
+  background: white;
+  color: black;
+}
+
+.booking-info{
+  font-size: 18px;
+  margin: 8px 5px;
+}
+
+.bookingsIndex h1 {
+  font-size: 22px;
+  display: block;
+  font-weight: bold;
+  text-align: left;
 }
