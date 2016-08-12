@@ -116,7 +116,7 @@ const CarForm = React.createClass({
             className='carFormInput'
           />
 
-        <UploadButton updateUrl={this.updateUrl} buttonText={this.state.buttonText}/>
+        <UploadButton className='picUploadButton'updateUrl={this.updateUrl} buttonText={this.state.buttonText}/>
 
         <button className='carFormButton' type='submit'>Add Your Car</button>
         </form>
