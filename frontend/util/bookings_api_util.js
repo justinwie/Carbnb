@@ -19,12 +19,13 @@ const BookingsApiUtil = {
     })
   },
 
-  createBooking(bookingData, cb, error){
+  createBooking(bookingData, cb, success, error){
     $.ajax({
       url: 'api/bookings',
       type: 'POST',
       data: bookingData,
       success(resp){
+        success(resp)
         cb(resp)
       },
       error(xhr){

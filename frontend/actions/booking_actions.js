@@ -18,6 +18,7 @@ const BookingActions = {
     BookingApiUtil.createBooking(
       {booking},
       cb,
+      BookingActions.addBooking,
       ErrorActions.setErrors
     )
   },
@@ -33,6 +34,13 @@ const BookingActions = {
     AppDispatcher.dispatch({
       actionType: BookingConstants.BOOKING_RECEIVED,
       bookings: bookings
+    })
+  },
+
+  addBooking(booking){
+    AppDispatcher.dispatch({
+      actionType: BookingConstants.ADD_BOOKING,
+      booking: booking
     })
   },
 

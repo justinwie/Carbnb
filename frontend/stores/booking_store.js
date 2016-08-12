@@ -13,6 +13,10 @@ const _resetAllBookings = function(bookings){
   }
 }
 
+const _addBooking = function(booking){
+  _bookings[booking.id] = booking;
+}
+
 const _removeBooking = function(booking) {
   delete _bookings[booking.id];
 };
@@ -21,6 +25,11 @@ BookingStore.__onDispatch = function(payload){
   switch (payload.actionType) {
     case BookingConstants.BOOKING_RECEIVED:
       _resetAllBookings(payload.bookings);
+      this.__emitChange();
+      break;
+
+    case BookingConstants.ADD_BOOKING:
+      _addBooking(payload.booking);
       this.__emitChange();
       break;
 

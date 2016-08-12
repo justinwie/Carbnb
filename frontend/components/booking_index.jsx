@@ -6,15 +6,17 @@ const BookingIndexItem = require('./booking_index_item');
 
 const BookingIndex = React.createClass({
   getInitialState(){
-    return { bookings: {} }
+    return { bookings: {}, carId: 0}
   },
 
   componentWillReceiveProps(newProps){
     BookingActions.fetchCarsBookings(parseInt(newProps.car.id))
+    this.setState({ carId: newProps.car.id})
   },
 
   componentDidMount(){
     this.storeListener = BookingStore.addListener(this._handleChange)
+    BookingActions.fetchCarsBookings(parseInt(this.state.carId))
   },
 
   componentWillUnmount(){
@@ -30,6 +32,8 @@ const BookingIndex = React.createClass({
     for (var idx in this.state.bookings){
       bookings_arr.push(this.state.bookings[idx])
     }
+
+
     return(
       <div className='booking_index_item'>
         {
