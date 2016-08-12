@@ -6,6 +6,13 @@ const CarIndex= require('./car_index')
 
 
 const Search = React.createClass({
+  getInitialState(){
+    return { }
+  },
+
+  _helper(){
+
+  },
 
   render(){
     return(

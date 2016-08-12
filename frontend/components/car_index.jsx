@@ -2,6 +2,7 @@ const React = require('react');
 const CarIndexItem = require('./car_index_item')
 const CarStore = require('../stores/car_store')
 const CarActions = require('../actions/car_actions')
+const CarMap = require('./car_map')
 
 const CarIndex = React.createClass({
   getInitialState(){
@@ -17,10 +18,19 @@ const CarIndex = React.createClass({
     this.setState({ cars: CarStore.all() })
   },
 
+  position(x, y){
+    return {lat: x, lng: y};
+  },
+
   render(){
     let cars_arr = []
+
     for (var idx in this.state.cars){
-      cars_arr.push(this.state.cars[idx])
+      let lat = this.state.cars[idx].lat;
+      let lng = this.state.cars[idx].lng;
+      // if (this.props.inBounds({ lat: lat, lng: lng }) ){
+        cars_arr.push(this.state.cars[idx])
+      // }
     }
 
     return(

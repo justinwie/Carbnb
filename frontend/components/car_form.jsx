@@ -8,6 +8,16 @@ const CarForm = React.createClass({
     return { lat: 0, lng: 0, manufacturer: "", model: "", year: null, style: "", color: "", price: null, description: "", image_url: "", owner_id: SessionStore.currentUser().id, buttonText: ['blank', 'Upload Picture'] }
   },
 
+  componentDidMount(){
+    this.geocoder = new google.maps.Geocoder();
+    const input = document.getElementById('car_address');
+    const autocomplete = new google.maps.places.Autocomplete(input);
+    this.autocompleteListener = google.maps.event.addListener(autocomplete, 'place_changed', () => {
+      const address = autocomplete.getPlace();
+      this.setState({ lat: address.geometry.location.lat(), lng: address.geometry.location.lng()})
+    });
+  },
+
   _success(){
     alert('Success! Your car has been uploaded')
   },
@@ -16,7 +26,8 @@ const CarForm = React.createClass({
     this.setState({ image_url: url, buttonText: ['success', 'Picture successfully uploaded!'] });
   },
 
-  _handleSubmit(){
+  _handleSubmit(e){
+    e.preventDefault();
     const data = {
       lat: this.state.lat,
       lng: this.state.lng,
@@ -60,6 +71,13 @@ const CarForm = React.createClass({
           />
 
           <input
+            type='text'
+            placeholder='address'
+            id='car_address'
+            className='carFormInput'
+          />
+
+          <input
             type='number'
             placeholder='year'
             value={this.state.year}
@@ -95,14 +113,6 @@ const CarForm = React.createClass({
             placeholder='description'
             value={this.state.description}
             onChange={this._handleUpdate('description')}
-            className='carFormInput'
-          />
-
-          <input
-            type='text'
-            placeholder='image_url'
-            value={this.state.image_url}
-            onChange={this._handleUpdate('image_url')}
             className='carFormInput'
           />
 

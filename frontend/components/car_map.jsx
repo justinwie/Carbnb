@@ -7,9 +7,27 @@ const hashHistory = require('react-router').hashHistory;
 
 const CarActions = require('../actions/car_actions')
 const CarStore = require('../stores/car_store')
-
+const CarIndex = require('./car_index')
 
 const CarMap = React.createClass({
+
+  componentDidMount(){
+    this.infowindow = new google.maps.InfoWindow();
+    this.markers = [];
+
+    const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
+    const mapOptions = {
+      center: {lat: this.props.lat, lng: this.props.lng},
+      zoom: 12
+    };
+
+    this.map = new google.maps.Map(mapDOMNode, mapOptions);
+
+    CarStore.addListener(this.createMarkers);
+    this._searchLocationListener();
+  },
+
+
   createMarkers(){
     const cars = CarStore.all();
     const cars_arr = [];
@@ -21,12 +39,28 @@ const CarMap = React.createClass({
     cars_arr.forEach(car => {
       let marker = new google.maps.Marker({
         position: this.position(car.lat, car.lng),
-        map: this.map
+        map: this.map,
+        carId: car.id
+      });
+
+      const content = `<img id='map-pic' src=${car.image_url} class='map-picture'/>` +
+                `<div class='infowindow-detail'>
+                    <h3 class='map-car-name'>${car.year} ${car.manufacturer} ${car.model}</h3>
+                    <h3>$${car.price} / day</h3>
+                  </div>`
+
+      marker.addListener('click', () => {
+        const markerCar = marker.carId;
+        this.infowindow.setContent(content);
+        this.infowindow.open(this.map, marker);
+
+        google.maps.event.addDomListener(document.getElementById('map-pic'), 'click', () => {
+          hashHistory.push('/cars/' + markerCar)
+        })
       });
 
       this.markers.push(marker);
     });
-
   },
 
   position(x, y){
@@ -34,7 +68,7 @@ const CarMap = React.createClass({
   },
 
   _searchLocationListener(){
-    const map = this.map;
+    let map = this.map;
 
     window.autocomplete.addListener('place_changed', () => {
       const address = window.autocomplete.getPlace().geometry.location
@@ -47,19 +81,15 @@ const CarMap = React.createClass({
     });
   },
 
-  componentDidMount(){
-      this.markers = [];
 
-      const mapDOMNode = ReactDOM.findDOMNode(this.refs.map);
-      const mapOptions = {
-        center: {lat: this.props.lat, lng: this.props.lng},
-        zoom: 12
-      };
-      this.map = new google.maps.Map(mapDOMNode, mapOptions);
-
-      CarStore.addListener(this.createMarkers);
-      this._searchLocationListener();
-    },
+  // inBounds(latLng){
+  //   let map = this.map
+  //
+  //   google.maps.event.addListenerOnce(map, 'bounds_changed', function() {
+  //     return map.getBounds().contains(latLng)
+  //   });
+  //
+  // },
 
   render(){
     return(

@@ -5,6 +5,11 @@ class Api::CarsController < ApplicationController
     if params[:user]
       @cars = Car.where(owner_id: params[:user].to_i)
     end
+
+    if bound_params
+      @cars = @cars.in_bounds(bound_params)
+    end
+
     render json: @cars
   end
 
@@ -40,6 +45,10 @@ class Api::CarsController < ApplicationController
   private
   def car_params
     params.require(:car).permit(:id, :lat, :lng, :manufacturer, :model, :year, :style, :color, :price, :description, :owner_id, :image_url)
+  end
+
+  def bound_params
+    params[:bounds]
   end
 
 end
