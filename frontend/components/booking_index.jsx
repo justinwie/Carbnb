@@ -9,15 +9,17 @@ const BookingIndex = React.createClass({
     return { bookings: {} }
   },
 
-  componentWillUpdate(){
-    BookingActions.fetchCarsBookings(parseInt(this.props.car.id))
+  componentWillReceiveProps(newProps){
+    BookingActions.fetchCarsBookings(parseInt(newProps.car.id))
   },
 
   componentDidMount(){
-    BookingStore.addListener(this._handleChange)
-    BookingActions.fetchCarsBookings(parseInt(this.props.car.id))
+    this.storeListener = BookingStore.addListener(this._handleChange)
   },
 
+  componentWillUnmount(){
+    this.storeListener.remove();
+  },
 
   _handleChange(){
     this.setState({ bookings: BookingStore.all() })

@@ -54,9 +54,9 @@ const CarMap = React.createClass({
         carId: car.id
       });
 
-      const content = `<img id='map-pic' src=${car.image_url} class='map-picture'/>` +
-                `<div class='infowindow-detail'>
-                    <h3 class='map-car-name'>${car.year} ${car.manufacturer} ${car.model}</h3>
+      const content = `<img id='map-pic' src=${car.image_url} className='map-picture'/>` +
+                `<div className='infowindow-detail'>
+                    <h3 className='map-car-name'>${car.year} ${car.manufacturer} ${car.model}</h3>
                     <h3>$${car.price} / day</h3>
                   </div>`
 

@@ -9,7 +9,11 @@ const ReviewForm = React.createClass({
   },
 
   componentDidMount() {
-    CarStore.addListener(this._handleChange)
+    this.storeListener = CarStore.addListener(this._handleChange)
+  },
+
+  componentWillUnmount(){
+    this.storeListener.remove();
   },
 
   _handleChange(){
@@ -58,12 +62,12 @@ const ReviewForm = React.createClass({
           </select>
 
           <textarea
-            className='review_form_text'
+            className='review_text'
             placeholder='Write your review here'
             value={this.state.description}
             onChange={this._handleDescription}
           />
-        <button type='submit'>submit!</button>
+        <button className='review_Button' type='submit'>submit!</button>
         </form>
       </div>
     )

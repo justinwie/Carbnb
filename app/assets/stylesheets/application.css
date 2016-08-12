@@ -395,24 +395,27 @@ li:hover .user-menu {
 
 
 .car_index{
-  padding: 100px 20px 0 20px;
+  top: 70px;
+  position: absolute;
   display: flex;
   flex-wrap: wrap;
   overflow: scroll;
-  height: 100%;
+  width: 60%;
+  height: 625px;
 }
 
 .car_index_item{
   box-sizing: border-box;
   display: inline-block;
-  height: 290px;
+  height: 250px;
 }
 
 .car_image_container{
   max-width: 300px;
   max-height: 200px;
   border: 1px solid lightgrey;
-  margin: 0 25px;
+  display: block;
+  margin: 0 0 0 50px;
   overflow: hidden;
 }
 
@@ -499,12 +502,34 @@ li:hover .user-menu {
   opacity: 0.8;
 }
 
+.review_rating, .review_text, .review_Button{
+  display: block;
+  margin: 10px 15px;
+}
+
+.review_text{
+  border: 1px solid lightgrey;
+  background-color: rgb(240, 240, 240);
+  width: 300px;
+  height: 100px;
+}
+
+.review_Button{
+  background-color: yellowgreen;
+  color: white;
+}
+
 .review_form h1 {
-  font-size: 16px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff7e82;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
 .rating {
   font-weight: bold;
+  margin-top: 5px;
 }
 
 .carForm {
@@ -581,4 +606,14 @@ li:hover .user-menu {
   display: block;
   font-weight: bold;
   text-align: left;
+}
+
+
+.infowindow-detail{
+  font-size: 10px;
+}
+
+.map-pic{
+  height: 100px;
+  width: 100px;
 }

@@ -16,8 +16,12 @@ const CarDetail = React.createClass({
   },
 
   componentDidMount(){
-    CarStore.addListener(this._onChange)
+    this.storeListener = CarStore.addListener(this._onChange);
     CarActions.fetchSingleCar(parseInt(this.props.params.carId));
+  },
+
+  componentWillUnmount(){
+    this.storeListener.remove();
   },
 
   _onChange(){
@@ -47,6 +51,7 @@ const CarDetail = React.createClass({
 
     return(
       <div className='car-detail-container'>
+
           <div className='booking-container'>
             <BookingForm car={car} />
           </div>
@@ -89,7 +94,8 @@ const CarDetail = React.createClass({
                   { reviewItem }
                 </div>
             </div>
-            <div className='carReview'>
+
+            <div className='carReviewFormContainer'>
               <ReviewForm car={car}/>
             </div>
           </div>

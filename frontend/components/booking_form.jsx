@@ -26,7 +26,6 @@ const BookingForm = React.createClass({
   },
 
   _successfulBooking() {
-    debugger;
     let user = SessionStore.currentUser();
     this.setState({ booked: true })
     alert(`Congrats ${user.fname}! Your ${this.props.car.manufacturer} ${this.props.car.model} will be ready from ${this.state.startDate._d.getMonth()+1}/${this.state.startDate._d.getDate()} to ${this.state.endDate._d.getMonth()+1}/${this.state.endDate._d.getDate()}`)
@@ -55,7 +54,7 @@ const BookingForm = React.createClass({
       <div>
         <form className='booking-form' onSubmit={this._handleSubmit}>
           <h1>${car.price}</h1>
-          <h2>per week</h2>
+          <h2>per day</h2>
 
           <div className='booking-form-dates'>
 

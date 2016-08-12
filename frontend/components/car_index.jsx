@@ -10,8 +10,12 @@ const CarIndex = React.createClass({
   },
 
   componentDidMount(){
-    CarStore.addListener(this._handleChange);
+    this.storeListener = CarStore.addListener(this._handleChange);
     CarActions.fetchAllCars();
+  },
+
+  componentWillUnmount(){
+    this.storeListener.remove();
   },
 
   _handleChange(){
