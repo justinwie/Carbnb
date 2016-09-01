@@ -15,7 +15,7 @@ const RootPage = React.createClass({
           'London': [51.511602, -0.135464, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000916/Tower_bridge_London_Twilight_-_November_2006_zssunr.jpg'],
           'Amsterdam': [52.365725, 4.895174, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000954/amsterdam2-sq_g7l4ti.jpg'],
           'Seoul': [37.546509, 126.986107, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000764/Seoul-Free-Easy_icpcsz.jpg'],
-          'San Francisco': [37.759, -122,446, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000417/a-new-moroccan-restaurant-is-coming-to-san-francisco-_1107_40019880_1_14103245_500_bshn3x.jpg'],
+          'San Francisco': [37.759, -122.446, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000417/a-new-moroccan-restaurant-is-coming-to-san-francisco-_1107_40019880_1_14103245_500_bshn3x.jpg'],
           'Barcelona': [41.399093, 2.160331, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000791/barcelona-second_e2zpou.jpg'],
           'Sydney': [-33.897160, 151.205064, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000823/Sydney-Harbour-Bridge-Getty-Image-AA039819-500x500_d76yvy.jpg'],
           'Tokyo': [35.716201, 139.713125, 'http://res.cloudinary.com/dl8lhjvx0/image/upload/v1468000850/tumblr_mm2gp6qJhl1re7fvvo1_500-5877_eqkblq.jpg']
