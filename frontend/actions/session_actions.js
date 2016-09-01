@@ -25,10 +25,6 @@ const SessionActions = {
     SessionApiUtil.logOut(this.removeCurrentUser);
   },
 
-  // fetchCurrentUser(complete){
-  //   SessionApiUtil.fetchCurrentUser(this.receiveCurrentUser, complete);
-  // },
-
   receiveCurrentUser(user){
     AppDispatcher.dispatch({
       actionType: SessionConstants.LOGIN,

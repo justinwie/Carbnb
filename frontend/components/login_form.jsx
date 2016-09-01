@@ -50,6 +50,7 @@ const LoginForm = React.createClass({
 		};
 
     SessionActions.logIn(formData);
+
 	},
 
   update(property) {

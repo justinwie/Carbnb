@@ -43,7 +43,7 @@ const CarIndex = React.createClass({
       <div className='car_index'>
         {
           cars_arr.map(function(car){
-            return <CarIndexItem car={car} key={car.id}/>
+            return <CarIndexItem car={car} key={car.id} carImage={car.imageurl}/>
           })
         }
       </div>

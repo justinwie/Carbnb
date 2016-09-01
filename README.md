@@ -15,9 +15,9 @@ It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js wi
 
 ### Car Rendering
 
-  Cars are stored in the database through a `cars` table that contains the columns `first name`, `last name`, `manufacturer`, `model`, `style`, `year`, `image_url`, `description`, `price`, `color`, `owner_id`,`lat`, and `lng`. The users and cars table are joined through `owner_id`.
+  Cars are stored in the database through a `cars` table that contains the columns `first name`, `last name`, `manufacturer`, `model`, `style`, `year`, `image`, `description`, `price`, `color`, `owner_id`,`lat`, and `lng`. The users and cars table are joined through `owner_id`.
 
-  `CarIndexItem` and `CarDetails` use `image_url` to render a picture of each car. `CarIndexItem` also contains basic details about the car. `CarDetails` contain more in-depth information about the car along with booking and reviews.
+  `CarIndexItem` and `CarDetails` use `image` to render a picture of each car. `CarIndexItem` also contains basic details about the car. `CarDetails` contain more in-depth information about the car along with booking and reviews.
 
 ![image of car index][car-detail]
 

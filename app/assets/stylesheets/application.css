@@ -578,7 +578,7 @@ li:hover .user-menu {
   background: yellowgreen;
 }
 
-.upload-button-blank, .upload-button-success{
+/*.upload-button-blank, .upload-button-success{
   background: #ff7e82;
   border: none;
   color: white;
@@ -593,7 +593,7 @@ li:hover .user-menu {
 
 .upload-button-success{
   background: yellowgreen;
-}
+}*/
 
 .carFormButton:hover{
   opacity: 0.8;

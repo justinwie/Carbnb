@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811011606) do
+ActiveRecord::Schema.define(version: 20160831211839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,19 +29,22 @@ ActiveRecord::Schema.define(version: 20160811011606) do
   add_index "bookings", ["renter_id"], name: "index_bookings_on_renter_id", using: :btree
 
   create_table "cars", force: :cascade do |t|
-    t.float    "lat",          null: false
-    t.float    "lng",          null: false
-    t.string   "manufacturer", null: false
-    t.string   "model",        null: false
-    t.integer  "year",         null: false
-    t.string   "style",        null: false
-    t.string   "color",        null: false
-    t.integer  "price",        null: false
-    t.text     "description",  null: false
-    t.string   "image_url"
-    t.integer  "owner_id",     null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.float    "lat",                null: false
+    t.float    "lng",                null: false
+    t.string   "manufacturer",       null: false
+    t.string   "model",              null: false
+    t.integer  "year",               null: false
+    t.string   "style",              null: false
+    t.string   "color",              null: false
+    t.integer  "price",              null: false
+    t.text     "description",        null: false
+    t.integer  "owner_id",           null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "cars", ["owner_id"], name: "index_cars_on_owner_id", using: :btree

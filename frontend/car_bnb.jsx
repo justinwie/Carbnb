@@ -2,7 +2,6 @@ const React = require('react')
 const ReactDOM = require('react-dom')
 const Modal = require("react-modal");
 
-
 const ReactRouter = require('react-router');
 const Router = ReactRouter.Router;
 const Route = ReactRouter.Route;

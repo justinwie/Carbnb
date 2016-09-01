@@ -32,13 +32,13 @@ const CarDetail = React.createClass({
 
   render(){
     const car = this.state.car;
-
     let image = {};
-    if (this.state.car.image_url) {
+    if (this.state.car.imageurl) {
       image = {
-        backgroundImage: 'url(' + this.state.car.image_url + ')'
+        backgroundImage: 'url(' + this.state.car.imageurl + ')'
       };
     };
+
 
     const allReviews = (car.reviews || []);
     let reviewItem = 'none yet';

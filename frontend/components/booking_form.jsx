@@ -8,6 +8,8 @@ const BookingActions = require('../actions/booking_actions');
 const SessionStore = require('../stores/session_store');
 const BookingStore = require('../stores/booking_store');
 
+
+
 const BookingForm = React.createClass({
   getInitialState(){
     return { startDate: null, endDate: null, booked: false }
@@ -31,6 +33,7 @@ const BookingForm = React.createClass({
     alert(`Congrats ${user.fname}! Your ${this.props.car.manufacturer} ${this.props.car.model} will be ready from ${this.state.startDate._d.getMonth()+1}/${this.state.startDate._d.getDate()} to ${this.state.endDate._d.getMonth()+1}/${this.state.endDate._d.getDate()}`)
   },
 
+
   _handleSubmit(e){
     e.preventDefault();
     const user = SessionStore.currentUser();
@@ -43,7 +46,7 @@ const BookingForm = React.createClass({
       }, this._successfulBooking);
     }
     else {
-      alert('Must login in order to book!')
+      alert('Please login before booking!')
     }
   },
 

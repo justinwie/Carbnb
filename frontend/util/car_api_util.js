@@ -30,11 +30,14 @@ const CarApiUtil = {
     })
   },
 
-  createCar(car, callback, error){
+  createCar(formData, callback, error){
     $.ajax({
       url: 'api/cars/',
       type: 'POST',
-      data: {car},
+      dataType: "json",
+      data: formData,
+      processData: false,
+      contentType: false,
       success(resp){
         callback(resp)
       },

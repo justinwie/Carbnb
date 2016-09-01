@@ -25,6 +25,7 @@ module.exports = {
       error(xhr){
         let errors = xhr.responseJSON;
         error("login", errors)
+        alert('Invalid email/password combination. Please try again.')
       }
     })
   },
@@ -41,5 +42,4 @@ module.exports = {
       }
     })
   }
-
 }

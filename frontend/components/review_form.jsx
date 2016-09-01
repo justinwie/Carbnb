@@ -34,13 +34,17 @@ const ReviewForm = React.createClass({
 
   _handleSubmit(e){
     e.preventDefault();
-
-    const data = {
-      description: this.state.description,
-      rating: parseInt(this.state.rating),
-      car_id: this.props.car.id
-    };
-    CarActions.createReview(data)
+    if (SessionStore.isUserLoggedIn()) {
+      const data = {
+        description: this.state.description,
+        rating: parseInt(this.state.rating),
+        car_id: this.props.car.id
+      };
+      CarActions.createReview(data)
+    }
+    else {
+      alert('Please login to review!')
+    }
   },
 
   render(){

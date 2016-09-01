@@ -5,7 +5,7 @@ const UploadButton = require('./upload_button')
 
 const CarForm = React.createClass({
   getInitialState() {
-    return { lat: 0, lng: 0, manufacturer: "", model: "", year: null, style: "", color: "", price: null, description: "", image_url: "", owner_id: SessionStore.currentUser().id, buttonText: ['blank', 'Upload Picture'] }
+    return { lat: 0, lng: 0, manufacturer: "", model: "", year: null, style: "", color: "", price: null, description: "", imageFile:null, imageUrl:null, owner_id: SessionStore.currentUser().id }
   },
 
   componentDidMount(){
@@ -22,31 +22,41 @@ const CarForm = React.createClass({
     alert('Success! Your car has been uploaded')
   },
 
-  updateUrl(url) {
-    this.setState({ image_url: url, buttonText: ['success', 'Picture successfully uploaded!'] });
-  },
-
   _handleSubmit(e){
     e.preventDefault();
-    const data = {
-      lat: this.state.lat,
-      lng: this.state.lng,
-      manufacturer: this.state.manufacturer,
-      model: this.state.model,
-      year: this.state.year,
-      style: this.state.style,
-      color: this.state.color,
-      price: this.state.price,
-      description: this.state.description,
-      image_url: this.state.image_url,
-      owner_id: this.state.owner_id
-    }
+    
+    var formData = new FormData();
+    formData.append("car[lat]", this.state.lat)
+    formData.append("car[lng]", this.state.lng)
+    formData.append("car[manufacturer]", this.state.manufacturer)
+    formData.append("car[model]", this.state.model)
+    formData.append("car[year]", this.state.year)
+    formData.append("car[style]", this.state.style)
+    formData.append("car[color]", this.state.lat)
+    formData.append("car[price]", this.state.price)
+    formData.append("car[description]", this.state.description)
+    formData.append("car[owner_id]", this.state.owner_id)
+    formData.append("car[image]", this.state.imageFile)
 
-    CarActions.createCar(data, this._success)
+    CarActions.createCar(formData, this._success)
   },
 
   _handleUpdate(prop){
     return (e) => this.setState({[prop]: e.target.value})
+  },
+
+  updateFile(e){
+    let file = e.currentTarget.files[0];
+    let reader = new FileReader();
+    reader.onloadend = function() {
+      this.setState({ imageUrl: reader.result, imageFile: file});
+    }.bind(this);
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
   },
 
   render(){
@@ -116,8 +126,8 @@ const CarForm = React.createClass({
             className='carFormInput'
           />
 
-        <UploadButton className='picUploadButton'updateUrl={this.updateUrl} buttonText={this.state.buttonText}/>
-
+        <img src={this.state.imageUrl}></img>
+        <input type='file' className='picUploadButton' onChange={this.updateFile}></input>
         <button className='carFormButton' type='submit'>Add Your Car</button>
         </form>
       </div>

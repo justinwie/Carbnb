@@ -29,10 +29,10 @@ const BookingIndex = React.createClass({
 
   render(){
     let bookings_arr = [];
+
     for (var idx in this.state.bookings){
       bookings_arr.push(this.state.bookings[idx])
     }
-
 
     return(
       <div className='booking_index_item'>
@@ -41,7 +41,7 @@ const BookingIndex = React.createClass({
             return <BookingIndexItem key={booking.id} booking={booking} />
           })
         }
-      </div>
+    </div>
     )
   }
 });

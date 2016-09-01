@@ -5,7 +5,8 @@ gem 'rails_12factor', group: :production
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
-gem 'cloudinary'
+gem 'aws-sdk', '>= 2.0'
+gem "paperclip", "~> 5.0.0"
 gem 'geocoder'
 gem 'figaro'
 # Use SCSS for stylesheets

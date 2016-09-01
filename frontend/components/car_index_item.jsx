@@ -7,7 +7,7 @@ const hashHistory = require('react-router').hashHistory;
 const CarIndexItem = React.createClass({
   _handleClick(e){
     e.preventDefault();
-    
+
     const carId = this.props.car.id;
     hashHistory.push('cars/' + carId);
   },
@@ -17,7 +17,9 @@ const CarIndexItem = React.createClass({
     return(
       <div className='car_index_item' key='car.id' >
         <div className='car_image_container'>
-          <div className='car_image' onClick={this._handleClick} ><img src={car.image_url}></img></div>
+          <div className='car_image' onClick={this._handleClick} >
+            <img src={car.imageurl}/>
+          </div>
         </div>
 
         <div className='car_info'>

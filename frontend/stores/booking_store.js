@@ -44,5 +44,8 @@ BookingStore.all = function(){
   return Object.assign({}, _bookings)
 };
 
+BookingStore.excludedDates = function(){
+}
+
 
 module.exports = BookingStore;

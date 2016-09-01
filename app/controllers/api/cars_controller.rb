@@ -1,16 +1,16 @@
 class Api::CarsController < ApplicationController
   def index
     @cars = Car.all
-    
+
     if params[:user]
       @cars = Car.where(owner_id: params[:user].to_i)
     end
 
     if bound_params
       @cars = @cars.in_bounds(bound_params)
+      render "api/cars/index"
     end
 
-    render json: @cars
   end
 
   def create
@@ -44,7 +44,7 @@ class Api::CarsController < ApplicationController
 
   private
   def car_params
-    params.require(:car).permit(:id, :lat, :lng, :manufacturer, :model, :year, :style, :color, :price, :description, :owner_id, :image_url)
+    params.require(:car).permit(:id, :lat, :lng, :manufacturer, :model, :year, :style, :color, :price, :description, :owner_id, :image)
   end
 
   def bound_params
