@@ -231,10 +231,10 @@ li:hover .user-menu {
 
 .map{
   top: 60px;
+  bottom: 0;
   right: 0;
   position: absolute;
   width: 40%;
-  height: 90%;
   z-index: 10;
 
 }
@@ -342,16 +342,16 @@ li:hover .user-menu {
 
 
 .car-detail-container{
-  padding: 60px 0;
+  padding: 60px 0 0 0;
 }
 
-
 .car-text-details{
-  position: absolute;
-  left: 15%;
+  display: block;
+  margin: 0 0 0 15%;
   top: 470px;
   width: 40%;
   padding: 20px 0 0 0;
+  left: 15%;
 }
 
 .car-text-details h1 {
@@ -396,19 +396,29 @@ li:hover .user-menu {
 .car_index{
   top: 70px;
   left: 0;
+  bottom: 0;
   position: absolute;
   display: flex;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 60%;
-  height: 90%;
+}
+
+.car_index_spacer{
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 2%;
+  width: 100%;
+  height: 100%;
 }
 
 
 .car_index_item{
   box-sizing: border-box;
-  display: inline-block;
+  display: inline;
+  margin: 0 auto;
   height: 250px;
+  padding: 20px 5px;
 }
 
 .car_image_container{
@@ -416,8 +426,6 @@ li:hover .user-menu {
   max-height: 200px;
   border: 1px solid lightgrey;
   display: block;
-  margin: 0 0 0 50px;
-  overflow: hidden;
 }
 
 
@@ -439,6 +447,7 @@ li:hover .user-menu {
 .car_info{
   position: relative;
   text-align: center;
+  margin: 5px auto;
 }
 
 .booking-form{
@@ -517,7 +526,16 @@ li:hover .user-menu {
 
 .review_Button{
   background-color: yellowgreen;
+  text-transform: capitalize;
   color: white;
+}
+
+.review_Button:hover{
+  opacity: 0.8;
+}
+
+.review_form {
+  margin-bottom: 30px;
 }
 
 .review_form h1 {
@@ -626,12 +644,35 @@ li:hover .user-menu {
   text-align: left;
 }
 
-
-.infowindow-detail{
-  font-size: 10px;
+#iw-title{
+  margin: 5px auto;
+  font-size: 18px;
+  text-align: center;
+  font-weight: bold;
+  list-style: none;
+}
+#iw-price{
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  list-style: none;
 }
 
-.map-pic{
-  height: 100px;
-  width: 100px;
+#iw-pic-container{
+  cursor: pointer;
+  max-width: 270px;
+  max-height: 180px;
+}
+#iw-pic-container:hover{
+  opacity: 0.8;
+}
+#iw-pic{
+  width:200px;
+}
+
+.carDetailMap{
+  display: block;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
 }

@@ -7,9 +7,7 @@ CarBnB is a full-stack web application inspired by AirBnb.
 It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Flux architectural framework on the frontend.
 
 ![image of splash page] [splash-page1]
-![image of splash page] [splash-page2]
-[splash-page1]: docs/Screenshots/SplashPage1.png
-[splash-page2]: docs/Screenshots/SplashPage2.png
+[splash-page1]: docs/Screenshots/CarBnB_GIF.gif
 
 ## Features & Implementation
 

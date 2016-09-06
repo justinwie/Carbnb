@@ -156,15 +156,13 @@ tok = [35.716201, 139.713125]
 cities = [nyc, paris, sf, ldn, amst, seoul, barc, syd, tok]
 
 cities.each do |city|
-  shuffled_cars = all_cars.to_a.sample(6).to_h
+  shuffled_cars = all_cars.to_a.sample(10).to_h
   shuffled_cars.each do |car|
     car[1][:lat] = city[0] + (0.04*rand*(rand(2)*2-1))
     car[1][:lng] = city[1] + (0.04*rand*(rand(2)*2-1))
     Car.create(car[1])
   end
 end
-
-
 
 Review.create({
   rating: 4,
@@ -173,22 +171,23 @@ Review.create({
   description: "Teslas are amazing! This one was clean, charged, and beautiful. Extremely fun to drive."
 })
 
-
-
 current_month = Date.today.month
 current_day = Date.today.day
 
-2.times do
-  (1..10).each do |carID|
-    random_start_day = rand(30 - current_day)
-    random_end_day = random_start_day + rand(3) + 1
-    month = ((current_day < 20) ? current_month : current_month + 1)
+i = 0
+  while i < 3
+    (1..all_cars.length).each do |carID|
+      random_start_day = rand(30 - current_day)
+      random_end_day = random_start_day + rand(3) + 1
+      month = ((current_day < 20) ? (current_month + i) : (current_month + i + 1))
 
-    Booking.create({
-      renter_id: (rand(3) + 1),
-      car_id: carID,
-      start_date: "2016-"+ month.to_s + "-" + random_start_day.to_s + "T00:00:00-04:00",
-      end_date: "2016-"+ month.to_s + "-" + random_end_day.to_s + "T00:00:00-04:00"
-    })
+      Booking.create({
+        renter_id: (rand(3) + 1),
+        car_id: carID,
+        start_date: "2016-"+ month.to_s + "-" + random_start_day.to_s + "T00:00:00-04:00",
+        end_date: "2016-"+ month.to_s + "-" + random_end_day.to_s + "T00:00:00-04:00"
+      })
+    end
+    i += 1
   end
 end

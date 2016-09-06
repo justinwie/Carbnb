@@ -54,18 +54,20 @@ const CarMap = React.createClass({
         carId: car.id
       });
 
-      const content = `<img id='map-pic' src=${car.imageurl} className='map-picture'/>` +
-                `<div className='infowindow-detail'>
-                    <h3 className='map-car-name'>${car.year} ${car.manufacturer} ${car.model}</h3>
-                    <h3>$${car.price} / day</h3>
-                  </div>`
+      const content = `<div className='iw-container' id='iw-pic-container'>
+                        <img id='iw-pic' src=${car.imageurl} className='iw-pic'/>
+                          <div >
+                              <li id='iw-title'>${car.year} ${car.manufacturer} ${car.model}</li>
+                              <li id='iw-price'>$${car.price} / day</li>
+                          </div>
+                      </div>`
 
       marker.addListener('click', () => {
         const markerCar = marker.carId;
         this.infowindow.setContent(content);
         this.infowindow.open(this.map, marker);
 
-        google.maps.event.addDomListener(document.getElementById('map-pic'), 'click', () => {
+        google.maps.event.addDomListener(document.getElementById('iw-pic'), 'click', () => {
           hashHistory.push('/cars/' + markerCar)
         })
       });

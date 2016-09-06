@@ -41,11 +41,13 @@ const CarIndex = React.createClass({
 
     return(
       <div className='car_index'>
+        <div className='car_index_spacer'>
         {
           cars_arr.map(function(car){
             return <CarIndexItem car={car} key={car.id} carImage={car.imageurl}/>
           })
         }
+      </div>
       </div>
     );
   }

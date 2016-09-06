@@ -13,11 +13,10 @@
 /tmp
 
 node_modules/
-bundle.js
 bundle.js.map
 .DS_Store
+npm-debug.log
 
-# Ignore application configuration
 
 # Ignore application configuration
 /config/application.yml
