@@ -36343,16 +36343,6 @@
 	                ),
 	                React.createElement(
 	                  'li',
-	                  null,
-	                  'Cars'
-	                ),
-	                React.createElement(
-	                  'li',
-	                  null,
-	                  'Bookings'
-	                ),
-	                React.createElement(
-	                  'li',
 	                  { onClick: this.handleLogout },
 	                  'Log Out'
 	                )

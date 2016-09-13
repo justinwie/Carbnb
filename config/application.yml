@@ -10,5 +10,12 @@
 #   stripe_api_key: sk_live_EeHnL644i6zo4Iyq4v1KdV9H
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
-CLOUD_NAME: "dosncedn5"
-UPLOAD_PRESET: "i73beemd"
+development:
+  s3_bucket: "carbnb-dev"
+
+production:
+  s3_bucket: "carbnb-pro"
+
+s3_region:  "us-east-1"
+s3_access_key_id: "AKIAJASUELOKZBY5SFGA"
+s3_secret_access_key: "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"

@@ -65,8 +65,6 @@ const NavBar = React.createClass({
 
                   <ul className='user-menu'>
                     <li onClick={this._handleHostCar}>Host your car</li>
-                    <li>Cars</li>
-                    <li>Bookings</li>
                     <li onClick={this.handleLogout}>Log Out</li>
                   </ul>
                 </li>
