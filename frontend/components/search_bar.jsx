@@ -3,7 +3,7 @@ const hashHistory = require('react-router').hashHistory;
 
 const SearchBar = React.createClass({
   getInitialState(){
-    return { text: 'Search Here...'};
+    return { text: 'Search Locations...'};
   },
 
   componentDidMount(){
