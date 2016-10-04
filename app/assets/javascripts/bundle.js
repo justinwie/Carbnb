@@ -36471,7 +36471,7 @@
 	var SearchBar = React.createClass({
 	  displayName: 'SearchBar',
 	  getInitialState: function getInitialState() {
-	    return { text: 'Search Here...' };
+	    return { text: 'Search Locations...' };
 	  },
 	  componentDidMount: function componentDidMount() {
 	    var input = document.getElementById('searchTextField');
