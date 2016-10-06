@@ -17,6 +17,7 @@ bundle.js.map
 .DS_Store
 npm-debug.log
 README.rdoc
+npm-debug.log
 
 
 # Ignore application configuration

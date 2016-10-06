@@ -1,6 +1,6 @@
 # CarBnB
 
-https://carbnb-jw.herokuapp.com
+http://www.carbnb.us/
 
 CarBnB is a full-stack web application inspired by AirBnb.
 
